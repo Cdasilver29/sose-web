@@ -43,4 +43,24 @@ determines whether everything built on top of it lasts.
 What matters most here: drainage and ground conditions, the two things most often
 under-investigated.
 
-CTA band: Building in one of these sectors? Let's talk specifics. → /contact
+## Imagery
+
+Only three of the photographs in /img/ actually show one of these sectors, so
+only three sectors carry an image: facade.jpg with Residential, tower.jpg with
+Commercial, excavator.jpg with Infrastructure. Industrial, Institutional and
+Government run without a picture rather than borrow one that shows something
+else. A photograph that does not show the thing it sits next to is decoration,
+and decoration on this page reads as padding.
+
+## Related
+
+The five services → /services/
+How a project runs → /approach/
+
+## CTA band
+
+Headline: Building in one of these sectors?
+Sub: Tell us which one, and what stage you have reached. The advice changes with
+both.
+Primary: Let's talk specifics → /contact
+Secondary: See the five services → /services

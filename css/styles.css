@@ -304,6 +304,19 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 34p
 .insight p{color:var(--muted);font-size:.93rem;flex:1}
 .insight .read{margin-top:18px;font-size:.8rem;color:var(--muted)}
 
+/* services index — the home page .svc card, used as a whole-card link */
+a.svc{display:block;text-decoration:none;color:inherit}
+a.svc h2{font-size:1.28rem;margin-bottom:12px}
+a.svc .arrow{display:inline-block;margin-top:18px;color:var(--gold);font-weight:600;font-size:.86rem}
+a.svc:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+/* sectors — the photo panel and the "what matters most here" line */
+.sector-media{margin-top:26px}
+.sector-media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;box-shadow:0 24px 48px rgba(11,31,77,.15)}
+.matters{border-left:2px solid var(--gold);padding:2px 0 2px 22px;margin-top:30px}
+.matters .lbl{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.matters p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:1.14rem;line-height:1.5;color:var(--navy)}
+
 /* footer columns */
 .foot-cols{display:grid;grid-template-columns:repeat(3,minmax(140px,1fr));gap:40px}
 .foot-h{display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:600;margin-bottom:14px}
