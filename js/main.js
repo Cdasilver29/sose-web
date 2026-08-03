@@ -102,9 +102,21 @@ if (sendBtn) {
     check('fEmail', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()));
     check('fMsg', msg.value.trim().length > 5);
     if (!ok) return;
+    // /contact/ adds phone, project type and location; the home page form has
+    // none of them. Each is included only when it is present and filled.
+    const optional = (id, label) => {
+      const el = document.getElementById(id);
+      const value = el && el.value.trim();
+      return value ? `${label}: ${value}\n` : '';
+    };
     const subject = encodeURIComponent('Project inquiry, ' + name.value.trim());
     const body = encodeURIComponent(
-      `Name: ${name.value.trim()}\nEmail: ${email.value.trim()}\n\n${msg.value.trim()}`
+      `Name: ${name.value.trim()}\n` +
+        `Email: ${email.value.trim()}\n` +
+        optional('phone', 'Phone') +
+        optional('ptype', 'Project type') +
+        optional('county', 'Location') +
+        `\n${msg.value.trim()}`
     );
     document.getElementById('formOk').style.display = 'block';
     location.href = `mailto:info@sosengineeringke.com?subject=${subject}&body=${body}`;

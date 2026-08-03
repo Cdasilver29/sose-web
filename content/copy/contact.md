@@ -31,6 +31,39 @@ Empty state and errors speak plainly. "Enter an email we can reply to", not
 Note under the form: We reply to every inquiry. If your project is urgent, say so
 in the first line.
 
+## Form microcopy
+
+Form heading: Tell us about the project
+Form intro: The more you can say now, the more useful the first reply will be.
+
+Labels: Your name · Email · Phone (optional) · Project type · County or location
+(optional) · About the project
+
+Project type options: Select one · New build · Renovation · Structural audit ·
+Project management · Advisory · Something else
+
+Errors:
+- Name: Tell us who we're replying to.
+- Email: Enter an email we can reply to.
+- Description: Tell us a little about the project, even a sentence or two.
+
+Submit: Send inquiry
+Confirmation shown after submitting: Your email app should now be open with the
+message ready. If nothing happened, write to info@sosengineeringke.com directly.
+
 ## Cross-link card
 
 Not sure what stage you're at? Run the two-minute readiness check → /project-check
+
+## Related
+
+Run the readiness check → /project-check
+Read the field notes → /insights
+
+## CTA band
+
+Headline: Or skip the form entirely.
+Sub: If a form is not how you want to start, write to us directly and say what
+you are planning. We read every one.
+Primary: Email info@sosengineeringke.com → mailto:info@sosengineeringke.com
+Secondary: How a project runs → /approach

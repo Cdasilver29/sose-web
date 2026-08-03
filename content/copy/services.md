@@ -47,6 +47,7 @@ Five cards, one per service, each linking to its page.
 
 Where we work → /sectors/
 How a project runs → /approach/
+Run the readiness check → /project-check/
 
 ## CTA band
 

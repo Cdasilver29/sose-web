@@ -73,6 +73,11 @@ full-viewport hero.
    material standards. Write about them in general terms only. Never state a
    fee, threshold, timeline, or clause number. Anything specific gets flagged
    `<!-- VERIFY: SOSE to confirm -->` and stays out of the build.
+
+   A VERIFY block guards either an absence or a claim. Removing one that
+   guarded an absence is complete. Removing one that guarded a claim means the
+   claim must also be removed or hedged, since the guard was the only thing
+   making it honest.
 3. Copy comes from `content/`. Do not improvise marketing copy inline. If copy
    is missing, add it to the content file first, then build the page.
 
