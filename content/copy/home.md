@@ -57,6 +57,8 @@ Eyebrow: How we work
 H2: Five steps, no surprises.
 Standfirst: Discovery, planning, design, execution, delivery. Every project moves
 through the same path, so you always know where you stand.
+Show the five step names on the hexagon timeline, names only, no descriptions.
+The process exists in full on /approach/ and nowhere else.
 Link: See how a project runs → /approach
 
 ## Insights teaser

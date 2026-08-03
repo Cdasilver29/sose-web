@@ -6,7 +6,25 @@ H1: Five steps, no surprises.
 Standfirst: The same disciplined path on every project, so you always know where
 you stand and what happens next.
 
+## Intro
+
+Eyebrow: Why it always runs this way
+
+A process is not paperwork. It is the order in which decisions get made, and the
+order is what stops the expensive ones being made blind. The five steps below are
+the same on a three-bedroom house and on a warehouse. What changes is the depth,
+not the sequence.
+
 ## The process
+
+This page owns the five steps in full. Everywhere else on the site, including the
+home page, carries the step names only and links here.
+
+Eyebrow: The five steps
+H2: What happens, in order.
+
+The steps run as a horizontal timeline on desktop, on the hexagon markers, with
+each step then set out in full below it.
 
 ### 1. Discovery
 We listen first. Your vision, your site, your budget, your constraints, your
@@ -39,6 +57,9 @@ properly, not quietly.
 
 ## How we keep quality honest
 
+Eyebrow: Quality
+H2: How we keep quality honest.
+
 - Written scope before work starts. If it is not in the scope, it gets priced
   before it gets built.
 - Materials verified against specification on delivery, not on the invoice.
@@ -64,4 +85,23 @@ hold one relationship than five.
 <!-- VERIFY: SOSE to confirm which engagement models they currently offer and
      any minimum project size before this section goes live. -->
 
-CTA band: Not sure which one fits? Tell us about the project. → /contact
+HOLD: this section is written but does not ship. Naming three engagement models
+states a fact about how SOSE sells, and SOSE has not confirmed it. It sits in
+the built page as an HTML comment, ready to uncomment the day the answer comes
+back. Tracked as item 4 in content/client-inputs-needed.md.
+
+## Related
+
+What to settle before you break ground → /insights/before-you-break-ground/
+The five services → /services/
+
+## CTA band
+
+Because the engagement models are on hold, the band asks about project stage
+rather than about which model fits.
+
+Headline: Not sure where your project is?
+Sub: Most people arrive somewhere in the middle of this. Tell us what stage you
+are at and we will tell you what the next step involves.
+Primary: Tell us about the project → /contact
+Secondary: Run the readiness check → /project-check

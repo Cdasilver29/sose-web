@@ -24,6 +24,9 @@ needs.
 
 ## Three principles
 
+These three are the spine of the page. Each gets its own band, labelled
+Principle one, Principle two and Principle three, in this order.
+
 ### See it first
 Every avoidable cost on a site was a question nobody asked in an office. We front
 load the thinking: site conditions, constraints, sequencing, cost drivers,
@@ -41,14 +44,30 @@ maintainability and running cost are design decisions, not afterthoughts.
 
 ## Where we work
 
+Eyebrow: Where we work
+
 Based in Kenya, SOSE serves clients across the country, from urban developments
 in cities to community projects in rural areas.
 
 ## What clients get from us
+
+Eyebrow: What you get from us
+H2: Straight answers, early.
 
 Straight answers. If a plan is not viable at the budget in front of us, we say so
 in the first meeting, not in month four. If a structure is sound, we do not
 invent work for it. The value of a consultant is entirely in their judgement, and
 judgement you cannot trust is worth nothing.
 
-CTA band: Ready to talk it through? → /contact
+## Related
+
+The five services → /services/
+How a project runs → /approach/
+
+## CTA band
+
+Headline: Ready to talk it through?
+Sub: Tell us what you are planning. You will get a straight answer about what it
+takes, whether or not you end up working with us.
+Primary: Start the conversation → /contact
+Secondary: Run the readiness check → /project-check
