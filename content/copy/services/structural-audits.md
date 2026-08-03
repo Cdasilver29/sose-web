@@ -21,6 +21,8 @@ establish what you are upgrading.
 
 ## What you get
 
+H2: Findings you can act on.
+
 - A visual and, where required, instrumented condition survey
 - Assessment of the structure against its current and intended use
 - Findings classified by severity, with what is urgent separated from what can
@@ -30,6 +32,8 @@ establish what you are upgrading.
 - Design of remedial or upgrade works where they are needed
 
 ## When you need it
+
+H2: You probably recognise one of these.
 
 - Cracks, sagging, damp or movement you cannot explain
 - You want to add floors or change what the building is used for
@@ -51,4 +55,9 @@ and why before doing it. We do not find work that is not there.
 Field note: What a structural audit actually looks for → /insights/what-a-structural-audit-looks-for
 Building solutions → /services/building-solutions
 
-CTA: Book a structural assessment.
+## CTA band
+
+Headline: Worried about a building you already own?
+Sub: Tell us what you are seeing. If it turns out to be cosmetic, we will say so.
+Primary: Book a structural assessment → /contact
+Secondary: Run the readiness check → /project-check

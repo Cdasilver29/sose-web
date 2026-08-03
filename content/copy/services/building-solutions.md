@@ -18,6 +18,8 @@ with a roof missing.
 
 ## What you get
 
+H2: One team, one line of accountability.
+
 - A design developed from your brief, the site survey and the ground conditions
 - Coordinated drawings across disciplines, checked against each other
 - A bill of quantities a contractor can price without guessing
@@ -26,6 +28,8 @@ with a roof missing.
 - Handover documentation: as-built drawings, certificates, maintenance outline
 
 ## When you need it
+
+H2: This is usually where it starts.
 
 - You want one relationship instead of five
 - You are building something with a specific operational requirement
@@ -43,4 +47,10 @@ changes are nearly free on paper and expensive in concrete.
 How a project runs → /approach
 Sustainable solutions → /services/sustainable-solutions
 
-CTA: Start with a conversation about what you're building.
+## CTA band
+
+Headline: Start with a conversation about what you're building.
+Sub: Bring the brief, the plot and the budget. We will tell you what is realistic
+before anything is drawn.
+Primary: Start the conversation → /contact
+Secondary: Run the readiness check → /project-check

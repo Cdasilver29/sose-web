@@ -17,6 +17,8 @@ what the regulations require, and what a contractor will actually price.
 
 ## What you get
 
+H2: Answers before the money moves.
+
 - A feasibility view: what can be built here, at what rough cost, over what
   timeline
 - Options compared on cost, buildability and running cost, not just on looks
@@ -26,6 +28,8 @@ what the regulations require, and what a contractor will actually price.
 - Written recommendations you can act on or take to another party
 
 ## When you need it
+
+H2: Most clients arrive at one of these points.
 
 - You have a plot and an idea and no reliable sense of what it will cost
 - You have quotes that differ by more than you can explain
@@ -43,4 +47,10 @@ faster we see the real position, the less we charge you to discover it.
 Project management → /services/project-management
 Field note: Before you break ground → /insights/before-you-break-ground
 
-CTA: Get an independent view on your project.
+## CTA band
+
+Headline: Get an independent view on your project.
+Sub: Send us whatever you already have. The faster we see the real position, the
+less it costs you to discover it.
+Primary: Get an independent view → /contact
+Secondary: Run the readiness check → /project-check

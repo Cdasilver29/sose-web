@@ -19,6 +19,8 @@ having to chase for news.
 
 ## What you get
 
+H2: Somebody holding all of it.
+
 - A programme with real dependencies, not a wish list of dates
 - Procurement support: scoping, tendering, comparing bids on like-for-like terms
 - Site supervision with defined hold points for inspection
@@ -27,6 +29,8 @@ having to chase for news.
 - One point of contact who answers the phone
 
 ## When you need it
+
+H2: These are the calls we usually get.
 
 - You are building while holding down a full-time job or living abroad
 - Your project has stalled and nobody can tell you exactly why
@@ -45,4 +49,10 @@ conversation.
 Construction consulting → /services/construction-consulting
 Building solutions → /services/building-solutions
 
-CTA: Hand the coordination to someone who does it full time.
+## CTA band
+
+Headline: Hand the coordination to someone who does it full time.
+Sub: Tell us where the project has reached. The first thing we produce is an
+honest position statement.
+Primary: Hand over the coordination → /contact
+Secondary: Run the readiness check → /project-check

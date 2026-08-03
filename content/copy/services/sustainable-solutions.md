@@ -17,6 +17,8 @@ them.
 
 ## What you get
 
+H2: Decisions that pay for themselves.
+
 - Orientation and passive design so the building stays comfortable without
   mechanical cooling
 - Material selection weighed on cost, availability, durability and impact
@@ -26,6 +28,8 @@ them.
 - Construction waste planning
 
 ## When you need it
+
+H2: The case is strongest in these situations.
 
 - You will own and operate the building, so the running cost is yours
 - You want lower bills without a premium build cost
@@ -43,4 +47,10 @@ what is now too late to be worth the cost.
 Field note: Building green in Kenya without paying a premium → /insights/building-green-without-the-premium
 Building solutions → /services/building-solutions
 
-CTA: Design it to cost less to run.
+## CTA band
+
+Headline: Design it to cost less to run.
+Sub: Most of these decisions cost nothing if they are made before the design is
+fixed.
+Primary: Design it to cost less to run → /contact
+Secondary: Run the readiness check → /project-check
