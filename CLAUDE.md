@@ -1,0 +1,157 @@
+# CLAUDE.md — SOSE Website
+
+Read this before touching anything. It is the source of truth for architecture,
+brand, voice, and the rules that must not be broken.
+
+## The client
+
+Sight Over Site Engineering (SOSE). Kenyan construction consulting and building
+solutions company. The site's job is to make a serious developer, homeowner, or
+institution believe SOSE can be trusted with a build worth millions of
+shillings, then get them to make contact.
+
+Contact: info@sosengineeringke.com · www.sosengineeringke.com · Kenya, nationwide.
+
+## Architecture
+
+Static HTML, CSS and vanilla JavaScript. No framework, no bundler, no build
+step, no dependencies. One folder per route with an `index.html` inside, so URLs
+are clean (`/services/structural-audits/`). All asset paths are root-relative
+(`/css/styles.css`, `/img/tower.jpg`).
+
+The shared nav and footer live in `tools/partials/` and are synced into every
+page in place by `node tools/sync-partials.mjs`. Pages carry markers:
+
+```html
+<!-- partial:nav -->   ...replaced content...   <!-- /partial:nav -->
+<!-- partial:footer --> ...replaced content... <!-- /partial:footer -->
+```
+
+This is the one piece of tooling in the project and it does exactly one thing.
+It is not a build system: it edits the files in place, so the repo is always
+the deployable artifact. There is no `dist/`.
+
+```bash
+npm run sync    # push partials into every page
+npm run check   # exit 1 if any page has drifted; run before every commit
+npm run dev     # local server on :5173 (needed, since paths are root-relative)
+```
+
+Rules that follow from this:
+
+- Never hand-edit the nav or footer inside a page. Edit `tools/partials/` and
+  run `npm run sync`.
+- Every new page must include both partial markers, or `npm run check` fails.
+- Never introduce a framework, a bundler, or a client-side router. If the site
+  ever needs a CMS, many blog posts, or a projects database, that is the moment
+  to convert to Astro, and the existing HTML converts almost directly into
+  layouts. Until then, this stays static.
+
+## Reference page
+
+`services/structural-audits/index.html` is the pattern for every interior page.
+Copy its structure: head block, partial markers, `.page-header` with
+breadcrumbs, alternating `.sec` and `.sec.white` bands, a `.related` block, a
+contextual `.cta-band`, then the footer partial. Match it rather than inventing
+a new arrangement.
+
+`index.html` is the home page, ported from v1. It is the only page with a
+full-viewport hero.
+
+## Non-negotiable rules
+
+1. Never invent facts. No fake testimonials, no invented case studies, no
+   made-up statistics ("250+ projects delivered"), no client logos, no team
+   members who do not exist. If a section needs proof SOSE has not supplied,
+   leave the section out. See `content/client-inputs-needed.md`.
+2. No regulatory specifics without a source. Kenyan construction involves
+   contractor registration, county approvals, environmental requirements and
+   material standards. Write about them in general terms only. Never state a
+   fee, threshold, timeline, or clause number. Anything specific gets flagged
+   `<!-- VERIFY: SOSE to confirm -->` and stays out of the build.
+3. Copy comes from `content/`. Do not improvise marketing copy inline. If copy
+   is missing, add it to the content file first, then build the page.
+4. Accessibility floor on every page: semantic landmarks, exactly one `h1`,
+   labelled icon-only controls, visible focus rings, AA contrast,
+   `prefers-reduced-motion` respected.
+
+## Brand tokens
+
+Defined in `:root` in `css/styles.css`. Never hardcode a colour.
+
+```css
+--navy: #0B1F4D;  --navy-deep: #071335;
+--gold: #C8A14D;  --gold-soft: #D9BC7A;
+--paper: #F9F7F2; --ink: #1B2438; --muted: #5C6478; --hairline: #E5E1D6;
+```
+
+Type: Playfair Display for headings, Inter for body and UI. Nothing else.
+
+The gold hexagon from the logo is the signature motif: the nav wordmark's O,
+the hero background mark, the page header watermark, the checkmark shape, the
+process step numbers, and the `.hexlist` bullet. Before adding a new shape, ask
+whether the hexagon can do that job.
+
+## Routes
+
+```
+/                              Home. Story condensed, every section links out.
+/about/                        Who SOSE is, the three principles, mission.
+/approach/                     Five-step process in full, quality, engagement models.
+/services/                     Index of the five services.
+/services/construction-consulting/
+/services/project-management/
+/services/building-solutions/
+/services/structural-audits/          <- built, use as the pattern
+/services/sustainable-solutions/
+/sectors/                      Six sectors, each with its own failure mode named.
+/insights/                     Field notes index.
+/insights/before-you-break-ground/
+/insights/what-a-structural-audit-looks-for/
+/insights/building-green-without-the-premium/
+/project-check/                Eight-question readiness tool. The lead generator.
+/contact/                      Details and inquiry form.
+/privacy/                      Data protection notice.
+```
+
+Deliberately absent: Projects, Testimonials, Team. All three ship the day SOSE
+supplies real content, not before.
+
+## CSS conventions
+
+`css/styles.css` is one file, two halves. Everything above the `MULTI-PAGE
+ADDITIONS (v2)` banner is the v1 home page system. Everything below supports
+interior pages. Add new component styles below the banner, grouped with a
+comment. Do not fork colours or type between the halves.
+
+Existing interior primitives, use these before writing new CSS:
+`.page-header`, `.crumbs`, `.sec` / `.sec.white` / `.sec.tight`, `.split` /
+`.split.narrow-left`, `.measure`, `.hexlist`, `.related` + `.rel`,
+`.cta-band`, `.prose`, `.insight-grid` + `.insight`, `.eyebrow`, `.btn` +
+`.btn-gold` / `.btn-ghost`, `.rv` + `.d1`–`.d4` for scroll reveals.
+
+## Voice
+
+Confident, plain, specific. Short sentences carry weight. Write like an engineer
+explaining something to a client who is spending their own money.
+
+The running theme is the name: sight before site. Foresight is the product. Use
+it where it earns its place, do not run it into the ground.
+
+Words that do not appear on this site: cutting-edge, world-class, robust,
+synergy, seamless, best-in-class, leverage, unlock, empower.
+
+## Motion
+
+Elements get class `rv` and reveal once on scroll, with `d1`–`d4` for stagger.
+Reduced motion turns it all off. No scroll hijacking, no parallax libraries, no
+page transition frameworks. The restraint is the design.
+
+## Definition of done for any page
+
+- Renders at 360px, 768px and 1440px with no horizontal scroll
+- Unique `<title>`, meta description, canonical and Open Graph tags
+- Both partial markers present, `npm run check` passes
+- Keyboard reachable, focus visible, sensible tab order
+- No copy invented outside `content/`
+- No console errors
