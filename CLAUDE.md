@@ -27,14 +27,18 @@ page in place by `node tools/sync-partials.mjs`. Pages carry markers:
 <!-- partial:footer --> ...replaced content... <!-- /partial:footer -->
 ```
 
-This is the one piece of tooling in the project and it does exactly one thing.
-It is not a build system: it edits the files in place, so the repo is always
-the deployable artifact. There is no `dist/`.
+The project has two scripts and no build step. `tools/sync-partials.mjs` keeps
+the nav and footer identical across every page. `tools/check-links.mjs` reports
+internal links pointing at routes that do not exist yet. Neither one produces
+build output: the sync script edits the files in place and the link checker only
+reads, so the repo is always the deployable artifact. There is no `dist/`.
 
 ```bash
-npm run sync    # push partials into every page
-npm run check   # exit 1 if any page has drifted; run before every commit
-npm run dev     # local server on :5173 (needed, since paths are root-relative)
+npm run sync          # push partials into every page
+npm run check         # exit 1 if any page has drifted; run before every commit
+npm run links         # list internal links whose routes are not built yet
+npm run links:strict  # same, but exits 1 on any missing route; the launch gate
+npm run dev           # local server on :5173 (needed, since paths are root-relative)
 ```
 
 Rules that follow from this:
@@ -71,6 +75,12 @@ full-viewport hero.
    `<!-- VERIFY: SOSE to confirm -->` and stays out of the build.
 3. Copy comes from `content/`. Do not improvise marketing copy inline. If copy
    is missing, add it to the content file first, then build the page.
+
+   content/ is the source of truth for copy. HTML follows content, never the
+   reverse. The one-time backfill of content/copy/services/structural-audits.md
+   from the built page reconciled the reference page; do not backfill again.
+   If a page needs a line that content does not have, add it to content first,
+   then build.
 4. Accessibility floor on every page: semantic landmarks, exactly one `h1`,
    labelled icon-only controls, visible focus rings, AA contrast,
    `prefers-reduced-motion` respected.
@@ -128,7 +138,11 @@ Existing interior primitives, use these before writing new CSS:
 `.page-header`, `.crumbs`, `.sec` / `.sec.white` / `.sec.tight`, `.split` /
 `.split.narrow-left`, `.measure`, `.hexlist`, `.related` + `.rel`,
 `.cta-band`, `.prose`, `.insight-grid` + `.insight`, `.eyebrow`, `.btn` +
-`.btn-gold` / `.btn-ghost`, `.rv` + `.d1`–`.d4` for scroll reveals.
+`.btn-gold` / `.btn-ghost`, `.rv` + `.d1`–`.d4` for scroll reveals,
+`.matters` (the sectors "what matters most here" callout), `.sector-media`
+(a cropped photo panel inside a `.split` column). The home page `.svc` card
+also works as a whole-card link: use `<a class="svc">` with an `h2` and a
+`.arrow`, as on `/services/`.
 
 ## Voice
 

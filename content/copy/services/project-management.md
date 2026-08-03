@@ -30,7 +30,7 @@ H2: Somebody holding all of it.
 
 ## When you need it
 
-H2: These are the calls we usually get.
+H2: See if one of these is your project.
 
 - You are building while holding down a full-time job or living abroad
 - Your project has stalled and nobody can tell you exactly why

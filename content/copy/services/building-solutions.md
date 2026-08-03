@@ -29,7 +29,7 @@ H2: One team, one line of accountability.
 
 ## When you need it
 
-H2: This is usually where it starts.
+H2: Any of these is a good place to begin.
 
 - You want one relationship instead of five
 - You are building something with a specific operational requirement

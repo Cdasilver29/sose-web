@@ -32,6 +32,7 @@ claude
 > run `npm run sync` and `npm run check`.
 
 Check: five service pages, consistent structure, no new CSS, check passes.
+`npm run links`.
 
 ## Phase 2 — Services index and sectors
 
@@ -42,7 +43,7 @@ Check: five service pages, consistent structure, no new CSS, check passes.
 > Both pages end with a contextual CTA band.
 
 Check: every service card links to a real page, sectors reads as expertise
-rather than a list.
+rather than a list. `npm run links`.
 
 ## Phase 3 — About and Approach
 
@@ -53,6 +54,7 @@ rather than a list.
 > the hexagon step markers.
 
 Check: process exists in full in exactly one place, home links to it.
+`npm run links`.
 
 ## Phase 4 — Field notes
 
@@ -64,6 +66,7 @@ Check: process exists in full in exactly one place, home links to it.
 > marked VERIFY in the markdown is omitted from the HTML and listed back to me.
 
 Check: articles read well at 360px, measure holds at 68ch, no VERIFY text ships.
+`npm run links`.
 
 ## Phase 5 — Readiness check, contact, privacy
 
@@ -78,7 +81,7 @@ Check: articles read well at 360px, measure holds at 68ch, no VERIFY text ships.
 > `/contact/` and `/services/`.
 
 Check: the tool is fully operable with a keyboard, the send action composes a
-correct email, no data leaves the page otherwise.
+correct email, no data leaves the page otherwise. `npm run links`.
 
 ## Phase 6 — Home rebuild, SEO and ship
 
@@ -91,8 +94,9 @@ correct email, no data leaves the page otherwise.
 > explicit width and height on every image below the fold. Finish with an
 > accessibility and performance pass and list what you changed.
 
-Check: `npm run check` passes, Lighthouse on home, a service page and an
-article. Then deploy.
+Check: `npm run check` passes, `npm run links`, Lighthouse on home, a service
+page and an article. `npm run links:strict` must pass with zero missing routes
+before deploy. Then deploy.
 
 ---
 

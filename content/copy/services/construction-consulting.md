@@ -29,7 +29,7 @@ H2: Answers before the money moves.
 
 ## When you need it
 
-H2: Most clients arrive at one of these points.
+H2: One of these is probably why you are here.
 
 - You have a plot and an idea and no reliable sense of what it will cost
 - You have quotes that differ by more than you can explain
