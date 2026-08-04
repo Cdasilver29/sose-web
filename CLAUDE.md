@@ -204,10 +204,10 @@ also works as a whole-card link: use `<a class="svc">` with an `h2` and a
 Confident, plain, specific. Short sentences carry weight. Write like an engineer
 explaining something to a client who is spending their own money.
 
-The running theme is the name: Sight over your Site. Foresight is the product.
+The running theme is the name: Sight over Site. Foresight is the product.
 Use it where it earns its place, do not run it into the ground. The wording and
-the capitalisation are both fixed — "Sight over your Site", capital S on both
-nouns, lowercase "over" and "your" — so it stays distinct from the full company
+the capitalisation are both fixed — "Sight over Site", capital S on both nouns,
+lowercase "over", and no possessive — so it stays distinct from the full company
 name, "Sight Over Site Engineering".
 
 Words that do not appear on this site: cutting-edge, world-class, robust,

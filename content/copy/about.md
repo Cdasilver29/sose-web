@@ -2,7 +2,7 @@
 
 Page header
 Eyebrow: About SOSE
-H1: Sight over your Site.
+H1: Sight over Site.
 Standfirst: The name is the method. We work out what a building needs before
 anyone breaks ground on it.
 

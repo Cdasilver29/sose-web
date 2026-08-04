@@ -27,7 +27,7 @@ Running a project that has stalled → /services/project-management
 ## About summary
 
 Eyebrow: Who we are
-H2: Sight over your Site.
+H2: Sight over Site.
 Body: Every lasting structure is built twice. First with foresight, then with
 concrete and steel. SOSE is a Kenyan construction consulting and solutions
 company built on that idea: get the thinking right and the building follows.
@@ -117,7 +117,7 @@ Link: All field notes → /insights
 
 ## Closing CTA
 
-H2: Your next project deserves Sight over your Site.
+H2: Your next project deserves Sight over Site.
 Body: Tell us what you're planning (a home, a commercial development, an audit of
 an existing structure) and we'll tell you honestly what it takes.
 CTAs: Start your project → /contact · Talk to an engineer → mailto
