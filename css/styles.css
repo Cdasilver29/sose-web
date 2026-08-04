@@ -707,17 +707,31 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
    opacity 0 forever. These are plain CSS animations and owe the script
    nothing.
 
-   Each h1 line is its own overflow:hidden block with the words inside it, so
-   the line climbs out from behind an edge rather than fading up. There is no
+   The h1 climbs out from behind one edge as a single block. There is no
    opacity in the keyframe on purpose: before it starts, the text is parked
-   below the edge and genuinely out of frame. The breaks are authored, because
-   CSS has no way to address a line box. */
-.hero-lines .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
-.hero-lines .ln>span{display:block;transform:translate3d(0,110%,0);animation:lineRise 1.05s var(--ease-out) forwards}
+   below the edge and genuinely out of frame.
+
+   This was three masks, one per line, each on its own delay. It cost more
+   than it was worth. Every .ln was an overflow:hidden box with a transform
+   animating inside it, so each became its own compositing layer holding
+   Playfair at 73.6px, and all three rasterised during the same window the
+   page was still parsing and running its script. On the 4x throttle a mid
+   range Android sees that as blocking time, and this site's traffic is
+   mostly mid range Android.
+
+   One mask, one layer, one raster. The gesture is the same and the stagger
+   the sequence actually reads from — eyebrow, then h1, then standfirst, then
+   buttons — is untouched below.
+
+   Dropping the per-line boxes also drops the authored line breaks, so the
+   heading wraps naturally now and .hero h1's max-width is what governs it. */
+   .hero .hero-title, not .hero-title: .hero h1 above sets margin-bottom:24px
+   at 0-1-1 and would out-specify a lone class. The padding is what stops
+   overflow:hidden clipping the descenders on the last line, and the margin
+   gives that padding back so the gap below the heading is still 24px. */
+.hero .hero-title{overflow:hidden;padding-bottom:.08em;margin-bottom:calc(24px - .08em)}
+.hero .hero-title>span{display:block;transform:translate3d(0,100%,0);animation:lineRise 1.15s var(--ease-out) .5s forwards}
 @keyframes lineRise{to{transform:translate3d(0,0,0)}}
-.hero-lines .ln:nth-child(1)>span{animation-delay:.50s}
-.hero-lines .ln:nth-child(2)>span{animation-delay:.63s}
-.hero-lines .ln:nth-child(3)>span{animation-delay:.76s}
 
 .hero .rise{opacity:0;transform:translate3d(0,20px,0);animation:heroRise .9s var(--ease-out) forwards}
 @keyframes heroRise{to{opacity:1;transform:translate3d(0,0,0)}}
@@ -896,7 +910,7 @@ html.nav-hidden #nav:focus-within ~ .crumb-bar{transform:none}
    rather than shortened: at .001ms with a forwards fill it would otherwise
    snap to the end of its keyframe and sit there, rotated four degrees. */
 @media (prefers-reduced-motion:reduce){
-  .hero .rise,.hero-lines .ln>span{opacity:1;transform:none;animation:none}
+  .hero .rise,.hero .hero-title>span{opacity:1;transform:none;animation:none}
   .hero-wipe,.hero-photo{transform:none;animation:none}
   .wipe,.wipe>*{transform:none;transition:none}
   .rv.rv-left,.rv.rv-right,.rv.rv-scale{transform:none}
