@@ -9,9 +9,9 @@ Standfirst: Tell us what you're planning and we'll tell you honestly what it tak
 
 Email: info@sosengineeringke.com
 Website: www.sosengineeringke.com
-Location: Kenya, serving clients nationwide
+Location: Nairobi, and serving countrywide in Kenya.
 Phone: <!-- VERIFY: SOSE to supply. Do not publish a placeholder number. -->
-Office address: <!-- VERIFY: SOSE to supply, or keep "Kenya, nationwide". -->
+Office address: <!-- VERIFY: SOSE to supply, or keep "Nairobi, and serving countrywide in Kenya." -->
 Hours: <!-- VERIFY: SOSE to supply. -->
 
 ## Inquiry form

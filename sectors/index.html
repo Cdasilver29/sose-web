@@ -64,6 +64,15 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <!-- The burger sits inside #nav, which is its own stacking context at z-index
+       100, so it paints *under* this overlay no matter what z-index it carries.
+       It is therefore neither visible nor clickable while the menu is open, and
+       this button is the only close control. It is placed over the burger's own
+       coordinates so the control does not appear to move. -->
+  <button class="menu-close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="/">Home</a>
   <a href="/about/">About</a>
   <a href="/services/">Services</a>
   <a href="/approach/">Approach</a>
@@ -91,13 +100,13 @@
 <main id="main" tabindex="-1">
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <h2>Residential</h2>
       <div class="sector-media">
         <img src="/img/facade.jpg" alt="Apartment blocks with balconies, lit by low evening sun" width="1200" height="800" loading="lazy">
       </div>
     </div>
-    <div class="rv d1">
+    <div class="rv rv-right d1">
       <div class="measure">
         <p>Homes, apartments and mixed developments. Owner-built houses, rental blocks, and phased family projects where the budget arrives in stages and the design has to survive the wait.</p>
       </div>
@@ -111,13 +120,13 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <h2>Commercial</h2>
       <div class="sector-media">
         <img src="/img/tower.jpg" alt="A glass office tower seen from street level against a bright sky" width="1100" height="1650" loading="lazy">
       </div>
     </div>
-    <div class="rv d1">
+    <div class="rv rv-right d1">
       <div class="measure">
         <p>Offices, retail and hospitality. Buildings that have to earn, where every month of delay has a number attached and fit-out coordination decides whether the opening date holds.</p>
       </div>
@@ -131,10 +140,10 @@
 
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <h2>Industrial</h2>
     </div>
-    <div class="rv d1">
+    <div class="rv rv-right d1">
       <div class="measure">
         <p>Warehouses, workshops and light manufacturing. Long spans, heavy floors, vehicle movement, and future expansion that should be designed for now rather than retrofitted later.</p>
       </div>
@@ -148,10 +157,10 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <h2>Institutional</h2>
     </div>
-    <div class="rv d1">
+    <div class="rv rv-right d1">
       <div class="measure">
         <p>Schools, health facilities, places of worship and community buildings. Usually funded in tranches, often built while occupied, always accountable to a committee.</p>
       </div>
@@ -165,10 +174,10 @@
 
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <h2>Government and public projects</h2>
     </div>
-    <div class="rv d1">
+    <div class="rv rv-right d1">
       <div class="measure">
         <p>Public works delivered against defined standards and procurement processes, with the documentation and traceability that public accountability requires.</p>
       </div>
@@ -182,13 +191,13 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <h2>Infrastructure</h2>
       <div class="sector-media">
         <img src="/img/excavator.jpg" alt="An excavator cutting into open ground on a cleared site" width="1200" height="800" loading="lazy">
       </div>
     </div>
-    <div class="rv d1">
+    <div class="rv rv-right d1">
       <div class="measure">
         <p>Access roads, drainage, water and site works. The unglamorous layer that determines whether everything built on top of it lasts.</p>
       </div>
@@ -219,7 +228,7 @@
 </section>
 
 <section class="cta-band">
-  <div class="wrap rv">
+  <div class="wrap rv rv-blur">
     <h2>Building in one of <em>these sectors?</em></h2>
     <p>Tell us which one, and what stage you have reached. The advice changes with both.</p>
     <div class="btn-row">

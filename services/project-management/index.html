@@ -64,6 +64,15 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <!-- The burger sits inside #nav, which is its own stacking context at z-index
+       100, so it paints *under* this overlay no matter what z-index it carries.
+       It is therefore neither visible nor clickable while the menu is open, and
+       this button is the only close control. It is placed over the burger's own
+       coordinates so the control does not appear to move. -->
+  <button class="menu-close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="/">Home</a>
   <a href="/about/">About</a>
   <a href="/services/">Services</a>
   <a href="/approach/">Approach</a>
@@ -92,10 +101,10 @@
 <main id="main" tabindex="-1">
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What it covers</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>Somebody has to hold the whole thing: the programme, the money, the contractors, the suppliers, the approvals, and the hundred decisions that come up weekly. If that person is you and construction is not your profession, the project will cost you more than the fee of someone who does it full time.</p>
       <p>We run the project on your behalf. Contractors are coordinated against a programme, work is inspected before it is covered up, variations are priced before they are approved, and you get written progress reports rather than having to chase for news.</p>
     </div>
@@ -104,11 +113,11 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What you get</span>
       <h2>Somebody holding all of it.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>A programme with real dependencies, not a wish list of dates</li>
       <li>Procurement support: scoping, tendering, comparing bids on like-for-like terms</li>
       <li>Site supervision with defined hold points for inspection</li>
@@ -121,11 +130,11 @@
 
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">When you need it</span>
       <h2>See if one of these is your project.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>You are building while holding down a full-time job or living abroad</li>
       <li>Your project has stalled and nobody can tell you exactly why</li>
       <li>You have several contractors and no one coordinating them</li>
@@ -136,10 +145,10 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">How the engagement runs</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>We take over from wherever the project currently is. The first step is always an honest position statement: what has been built, what has been paid, what has been agreed, and where the real gaps are.</p>
       <p><strong>Sometimes that document alone changes the conversation.</strong></p>
     </div>
@@ -165,7 +174,7 @@
 </section>
 
 <section class="cta-band">
-  <div class="wrap rv">
+  <div class="wrap rv rv-blur">
     <h2>Hand the coordination to someone who <em>does it full time.</em></h2>
     <p>Tell us where the project has reached. The first thing we produce is an honest position statement.</p>
     <div class="btn-row">

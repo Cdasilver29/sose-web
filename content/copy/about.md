@@ -2,7 +2,7 @@
 
 Page header
 Eyebrow: About SOSE
-H1: Sight over site.
+H1: Sight over your Site.
 Standfirst: The name is the method. We work out what a building needs before
 anyone breaks ground on it.
 
@@ -16,8 +16,8 @@ finished, a contractor appointed before the scope was clear.
 Sight Over Site Engineering exists to close that gap. We are a Kenyan
 construction consulting and solutions company dedicated to transforming ideas
 into sustainable, high-quality structures. We provide end-to-end building
-solutions, combining innovation, expertise and efficiency to deliver projects
-that stand the test of time.
+solutions, from the first drawing to the final handover, combining innovation,
+expertise and efficiency to deliver projects that stand the test of time.
 
 Our mission is to be the trusted partner for all your construction and building
 needs.
@@ -46,8 +46,8 @@ maintainability and running cost are design decisions, not afterthoughts.
 
 Eyebrow: Where we work
 
-Based in Kenya, SOSE serves clients across the country, from urban developments
-in cities to community projects in rural areas.
+Based in Nairobi, and serving countrywide in Kenya, SOSE works from urban
+developments in the cities to community projects in rural areas.
 
 ## What clients get from us
 

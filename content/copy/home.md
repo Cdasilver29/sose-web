@@ -4,9 +4,8 @@
 
 Eyebrow: Construction Consulting in Kenya
 H1: We see the building before the site does.
-Standfirst: Sight Over Site Engineering turns ideas into sustainable, high-quality
-structures. End-to-end building solutions that combine innovation, expertise and
-efficiency, from the first drawing to the final handover.
+Standfirst: Consulting, project management and building solutions, worked out on
+paper before anyone breaks ground.
 Primary CTA: Start your project → /contact
 Secondary CTA: Check if you're ready to build → /project-check
 
@@ -28,12 +27,12 @@ Running a project that has stalled → /services/project-management
 ## About summary
 
 Eyebrow: Who we are
-H2: Sight, before site.
+H2: Sight over your Site.
 Body: Every lasting structure is built twice. First with foresight, then with
 concrete and steel. SOSE is a Kenyan construction consulting and solutions
 company built on that idea: get the thinking right and the building follows.
-We work across the country, from urban developments in the cities to community
-projects in rural areas.
+Based in Nairobi, and serving countrywide in Kenya, we work from urban
+developments in the cities to community projects in rural areas.
 Mission pull-quote: Our mission is to be the trusted partner for all your
 construction and building needs.
 Link: Read our story → /about
@@ -118,7 +117,7 @@ Link: All field notes → /insights
 
 ## Closing CTA
 
-H2: Your next project deserves sight before site.
+H2: Your next project deserves Sight over your Site.
 Body: Tell us what you're planning (a home, a commercial development, an audit of
 an existing structure) and we'll tell you honestly what it takes.
 CTAs: Start your project → /contact · Talk to an engineer → mailto

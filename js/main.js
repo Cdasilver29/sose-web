@@ -1,25 +1,96 @@
 // SOSE site behaviour. Vanilla, no dependencies, loaded with defer on every page.
 
-// ---- nav scroll state -------------------------------------------------
-// The class goes on <html>, not on #nav. The breadcrumb bar is a sibling of the
-// nav and has to react to the same state, and it reads --nav-h to position
-// itself, which only works if the variable is overridden on an ancestor.
+// ---- the scroll driver ------------------------------------------------
+// One scroll listener and one requestAnimationFrame callback for every
+// scroll-linked effect on the site: the nav's compressed state, the nav hiding
+// on the way down, and both parallax layers. Nothing else in the project
+// listens on scroll. A listener per effect is how a page ends up doing three
+// layout reads and three style writes per frame, all of them fighting.
+//
+// The reads are hoisted out entirely. Element positions are measured once, on
+// load and on resize, so the frame itself only reads scrollY and only writes
+// transforms — no interleaving, no forced synchronous layout.
 const nav = document.getElementById('nav');
 const root = document.documentElement;
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
 // Only the home page has a hero to sit transparently over. Everywhere else the
-// header is permanently in its compressed state, so the listener is not
-// attached at all. Toggling on scroll *and* force-adding the class, as this
-// did before, meant any scroll back to the top removed it again; that was
-// invisible when the class only changed a background, but it now drives
-// --nav-h, and the breadcrumb bar would jump 12px.
-if (document.querySelector('.hero')) {
-  const setNavState = () => root.classList.toggle('scrolled', scrollY > 40);
-  addEventListener('scroll', setNavState, { passive: true });
-  setNavState();
-} else {
-  root.classList.add('scrolled');
+// header is permanently in its compressed state. Toggling on scroll *and*
+// force-adding the class, as this did before it was a class on <html>, meant
+// any scroll back to the top removed it again; that was invisible when the
+// class only changed a background, but it now drives --nav-h, and the
+// breadcrumb bar would jump 12px.
+const hasHero = !!document.querySelector('.hero');
+if (!hasHero) root.classList.add('scrolled');
+
+let menuIsOpen = false; // owned by the mobile menu block below
+let layers = [];
+let lastY = scrollY;
+let queued = false;
+
+const clamp = (n, min, max) => (n < min ? min : n > max ? max : n);
+
+// Measured with the drift cleared, so a re-measure never compounds the offset
+// it is currently applying.
+function measureLayers() {
+  layers = [...document.querySelectorAll('[data-parallax]')].map((el) => {
+    el.style.transform = '';
+    const box = el.getBoundingClientRect();
+    return {
+      el,
+      rate: parseFloat(el.dataset.parallax) || 0,
+      centre: box.top + scrollY + box.height / 2,
+    };
+  });
 }
+
+function frame() {
+  queued = false;
+  const y = scrollY;
+
+  if (hasHero) root.classList.toggle('scrolled', y > 40);
+
+  if (!reduceMotion.matches) {
+    // Hidden on the way down, back on the way up. Never while the overlay is
+    // open, because closing it hands focus to the burger and the burger has to
+    // be on screen to receive it. Never in the first 200px either: a header
+    // that vanishes the moment you nudge the page reads as a glitch.
+    // The 4px deadband keeps trackpad jitter from flickering it.
+    if (menuIsOpen || y < 200) root.classList.remove('nav-hidden');
+    else if (y > lastY + 4) root.classList.add('nav-hidden');
+    else if (y < lastY - 4) root.classList.remove('nav-hidden');
+
+    // Offset is zero when a layer's centre sits on the viewport's centre, so
+    // the drift passes through neutral as the band goes by rather than
+    // starting from wherever the page happened to load. Clamped to 60px, which
+    // is well inside the 80px of bleed each layer carries.
+    for (const layer of layers) {
+      const offset = clamp((y + innerHeight / 2 - layer.centre) * layer.rate, -60, 60);
+      layer.el.style.transform = `translate3d(0,${offset.toFixed(1)}px,0)`;
+    }
+  }
+
+  lastY = y;
+}
+
+const requestFrame = () => {
+  if (queued) return;
+  queued = true;
+  requestAnimationFrame(frame);
+};
+
+addEventListener('scroll', requestFrame, { passive: true });
+addEventListener(
+  'resize',
+  () => {
+    measureLayers();
+    requestFrame();
+  },
+  { passive: true }
+);
+
+measureLayers();
+frame();
 
 // ---- active route -----------------------------------------------------
 // Marks the current section in both navs. A page under /services/ marks the
@@ -67,6 +138,7 @@ if (document.querySelector('.hero')) {
 // ---- mobile menu ------------------------------------------------------
 const burger = document.getElementById('burger');
 const menu = document.getElementById('mobileMenu');
+const menuClose = document.getElementById('menuClose');
 if (burger && menu) {
   // The breadcrumb bar is hidden under 820px, so the overlay carries the trail
   // instead. Cloned as plain text, not links: in a fullscreen menu it is there
@@ -74,6 +146,10 @@ if (burger && menu) {
   const crumbBar = document.querySelector('.crumb-bar');
 
   const setMenu = (isOpen) => {
+    menuIsOpen = isOpen;
+    // The header cannot be parked off-screen while the overlay is up: closing
+    // returns focus to the burger, and the burger has to be somewhere to go.
+    if (isOpen) root.classList.remove('nav-hidden');
     menu.classList.toggle('open', isOpen);
     burger.classList.toggle('open', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
@@ -97,32 +173,50 @@ if (burger && menu) {
     }
   };
 
+  // Every way out of the menu ends the same way: close, then hand focus back
+  // to the control that opened it. The burger is behind the overlay and
+  // visibility:hidden while it is open, so the X in the corner is the only
+  // close control on screen — but it is not the only one, and none of them
+  // should leave focus stranded on a element that has just gone away.
+  const closeMenu = () => {
+    setMenu(false);
+    burger.focus();
+  };
+
   burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  if (menuClose) menuClose.addEventListener('click', closeMenu);
   menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
   // Escape closes it and hands focus back, so the menu is not a trap for
   // anyone driving this from the keyboard.
   addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menu.classList.contains('open')) {
-      setMenu(false);
-      burger.focus();
-    }
+    if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
   });
 }
 
 // ---- reveal on scroll, once -------------------------------------------
+// .rv and its variants are observed directly. A .wipe cannot be: it parks
+// itself a full width outside the frame until it reveals, so its own box never
+// intersects anything and it would sit there forever. Its static parent is
+// watched instead, and the class is redirected onto the wipe.
+const revealTarget = new Map();
 const io = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
+      if (!e.isIntersecting) return;
+      (revealTarget.get(e.target) || e.target).classList.add('in');
+      io.unobserve(e.target);
     });
   },
   { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
 );
 document.querySelectorAll('.rv').forEach((el) => io.observe(el));
+document.querySelectorAll('.wipe').forEach((el) => {
+  const host = el.parentElement;
+  if (!host) return;
+  revealTarget.set(host, el);
+  io.observe(host);
+});
 
 // ---- inquiry form, mailto based (only present on /contact/) -----------
 const sendBtn = document.getElementById('sendBtn');

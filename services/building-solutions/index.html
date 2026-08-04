@@ -64,6 +64,15 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <!-- The burger sits inside #nav, which is its own stacking context at z-index
+       100, so it paints *under* this overlay no matter what z-index it carries.
+       It is therefore neither visible nor clickable while the menu is open, and
+       this button is the only close control. It is placed over the burger's own
+       coordinates so the control does not appear to move. -->
+  <button class="menu-close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="/">Home</a>
   <a href="/about/">About</a>
   <a href="/services/">Services</a>
   <a href="/approach/">Approach</a>
@@ -92,10 +101,10 @@
 <main id="main" tabindex="-1">
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What it covers</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>End-to-end delivery under one accountable team. Design, documentation, procurement and construction, coordinated so that the drawings, the bill of quantities and what actually gets built are the same thing.</p>
       <p>Tailored means the design starts from your brief, your plot and your budget. A house that has to be built in three phases as money arrives is a different design problem from one built in one go, and pretending otherwise is how projects stall with a roof missing.</p>
     </div>
@@ -104,11 +113,11 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What you get</span>
       <h2>One team, one line of accountability.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>A design developed from your brief, the site survey and the ground conditions</li>
       <li>Coordinated drawings across disciplines, checked against each other</li>
       <li><strong>A bill of quantities a contractor can price</strong> without guessing</li>
@@ -121,11 +130,11 @@
 
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">When you need it</span>
       <h2>Any of these is a good place to begin.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>You want one relationship instead of five</li>
       <li>You are building something with a specific operational requirement</li>
       <li>Your project has to be delivered in phases</li>
@@ -136,10 +145,10 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">How the engagement runs</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>Discovery, planning, design, execution, delivery. The full process is set out on the <a href="/approach/">approach page</a>. What we need from you is decisiveness at the design stage.</p>
       <p><strong>Changes are nearly free on paper and expensive in concrete.</strong></p>
     </div>
@@ -165,7 +174,7 @@
 </section>
 
 <section class="cta-band">
-  <div class="wrap rv">
+  <div class="wrap rv rv-blur">
     <h2>Start with a conversation about <em>what you're building.</em></h2>
     <p>Bring the brief, the plot and the budget. We will tell you what is realistic before anything is drawn.</p>
     <div class="btn-row">

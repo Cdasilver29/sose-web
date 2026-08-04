@@ -64,6 +64,15 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <!-- The burger sits inside #nav, which is its own stacking context at z-index
+       100, so it paints *under* this overlay no matter what z-index it carries.
+       It is therefore neither visible nor clickable while the menu is open, and
+       this button is the only close control. It is placed over the burger's own
+       coordinates so the control does not appear to move. -->
+  <button class="menu-close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="/">Home</a>
   <a href="/about/">About</a>
   <a href="/services/">Services</a>
   <a href="/approach/">Approach</a>
@@ -92,10 +101,10 @@
 <main id="main" tabindex="-1">
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What it covers</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>Consulting is the work that happens before and around the building. Testing whether the project is viable at the budget you have, choosing between options while changing your mind is still free, and mapping the approvals and standards your project has to satisfy.</p>
       <p>It is also the work of translation. Between what you want, what the site allows, what the regulations require, and what a contractor will actually price.</p>
     </div>
@@ -104,11 +113,11 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What you get</span>
       <h2>Answers before the money moves.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>A feasibility view: what can be built here, at what rough cost, over what timeline</li>
       <li>Options compared on cost, buildability and running cost, not just on looks</li>
       <li><strong>A risk register</strong>: what could go wrong, how likely, what it would cost</li>
@@ -121,11 +130,11 @@
 
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">When you need it</span>
       <h2>One of these is probably why you are here.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>You have a plot and an idea and no reliable sense of what it will cost</li>
       <li>You have quotes that differ by more than you can explain</li>
       <li>Someone has told you something is impossible and you want an independent view</li>
@@ -136,10 +145,10 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">How the engagement runs</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>Usually a short, defined engagement with a written output. We need whatever you already have: title documents, survey, drawings, quotes, correspondence.</p>
       <p><strong>The faster we see the real position, the less we charge you to discover it.</strong></p>
     </div>
@@ -165,7 +174,7 @@
 </section>
 
 <section class="cta-band">
-  <div class="wrap rv">
+  <div class="wrap rv rv-blur">
     <h2>Get an independent view <em>on your project.</em></h2>
     <p>Send us whatever you already have. The faster we see the real position, the less it costs you to discover it.</p>
     <div class="btn-row">

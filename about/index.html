@@ -64,6 +64,15 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <!-- The burger sits inside #nav, which is its own stacking context at z-index
+       100, so it paints *under* this overlay no matter what z-index it carries.
+       It is therefore neither visible nor clickable while the menu is open, and
+       this button is the only close control. It is placed over the burger's own
+       coordinates so the control does not appear to move. -->
+  <button class="menu-close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="/">Home</a>
   <a href="/about/">About</a>
   <a href="/services/">Services</a>
   <a href="/approach/">Approach</a>
@@ -83,7 +92,7 @@
 
 <header class="page-header">
   <div class="wrap">
-    <h1>Sight <em>over</em> site.</h1>
+    <h1>Sight <em>over</em> your Site.</h1>
     <p class="standfirst">The name is the method. We work out what a building needs before anyone breaks ground on it.</p>
   </div>
 </header>
@@ -91,12 +100,12 @@
 <main id="main" tabindex="-1">
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">The idea</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>Most construction problems are not construction problems. They are decisions made too early, too late, or without enough information: a foundation designed before the soil was understood, a budget agreed before the drawings were finished, a contractor appointed before the scope was clear.</p>
-      <p>Sight Over Site Engineering exists to close that gap. We are a Kenyan construction consulting and solutions company dedicated to transforming ideas into sustainable, high-quality structures. We provide end-to-end building solutions, combining innovation, expertise and efficiency to deliver projects that stand the test of time.</p>
+      <p>Sight Over Site Engineering exists to close that gap. We are a Kenyan construction consulting and solutions company dedicated to transforming ideas into sustainable, high-quality structures. We provide end-to-end building solutions, from the first drawing to the final handover, combining innovation, expertise and efficiency to deliver projects that stand the test of time.</p>
       <p class="mission">Our mission is to be the trusted partner for all your construction and building needs.</p>
     </div>
   </div>
@@ -104,11 +113,11 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">Principle one</span>
       <h2>See it first.</h2>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>Every avoidable cost on a site was a question nobody asked in an office. We front load the thinking: site conditions, constraints, sequencing, cost drivers, approvals.</p>
       <p><strong>The drawings get harder so the build gets easier.</strong></p>
     </div>
@@ -117,11 +126,11 @@
 
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">Principle two</span>
       <h2>Own the ground.</h2>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>A design that works in a brochure does not always work on a specific plot in a specific county in a specific rainy season.</p>
       <p>We build for the ground we are standing on, with the suppliers, contractors and regulators who are actually available.</p>
     </div>
@@ -130,11 +139,11 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">Principle three</span>
       <h2>Leave it standing.</h2>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>A building is finished when it is still performing in twenty years.</p>
       <p><strong>Durability, maintainability and running cost are design decisions, not afterthoughts.</strong></p>
     </div>
@@ -143,22 +152,22 @@
 
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">Where we work</span>
     </div>
-    <div class="measure rv d1">
-      <p>Based in Kenya, SOSE serves clients across the country, from urban developments in cities to community projects in rural areas.</p>
+    <div class="measure rv rv-right d1">
+      <p>Based in Nairobi, and serving countrywide in Kenya, SOSE works from urban developments in the cities to community projects in rural areas.</p>
     </div>
   </div>
 </section>
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What you get from us</span>
       <h2>Straight answers, early.</h2>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>If a plan is not viable at the budget in front of us, we say so in the first meeting, not in month four. If a structure is sound, we do not invent work for it.</p>
       <p><strong>The value of a consultant is entirely in their judgement</strong>, and judgement you cannot trust is worth nothing.</p>
     </div>
@@ -184,7 +193,7 @@
 </section>
 
 <section class="cta-band">
-  <div class="wrap rv">
+  <div class="wrap rv rv-blur">
     <h2>Ready to <em>talk it through?</em></h2>
     <p>Tell us what you are planning. You will get a straight answer about what it takes, whether or not you end up working with us.</p>
     <div class="btn-row">

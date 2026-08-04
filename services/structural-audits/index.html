@@ -64,6 +64,15 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <!-- The burger sits inside #nav, which is its own stacking context at z-index
+       100, so it paints *under* this overlay no matter what z-index it carries.
+       It is therefore neither visible nor clickable while the menu is open, and
+       this button is the only close control. It is placed over the burger's own
+       coordinates so the control does not appear to move. -->
+  <button class="menu-close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="/">Home</a>
   <a href="/about/">About</a>
   <a href="/services/">Services</a>
   <a href="/approach/">Approach</a>
@@ -92,10 +101,10 @@
 <main id="main" tabindex="-1">
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What it covers</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>An audit answers a specific question: is this building safe for what it is being asked to do, and what does it need? That question comes up when someone wants to add a floor, change the use, buy the property, or when cracks appear and nobody can say whether they matter.</p>
       <p>We inspect the structure, assess its condition against what it was designed for and what it is now carrying, and set out the findings in plain language with a prioritised list of what to do.</p>
       <p>Renovation work follows the same logic. Before you upgrade a building, you establish what you are upgrading.</p>
@@ -105,11 +114,11 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What you get</span>
       <h2>Findings you can act on.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>A visual and, where required, instrumented condition survey</li>
       <li>Assessment of the structure against its current and intended use</li>
       <li><strong>Findings classified by severity</strong>, with what is urgent separated from what can wait</li>
@@ -122,11 +131,11 @@
 
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">When you need it</span>
       <h2>You probably recognise one of these.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>Cracks, sagging, damp or movement you cannot explain</li>
       <li>You want to add floors or change what the building is used for</li>
       <li>You are buying a property and want to know what you are buying</li>
@@ -138,10 +147,10 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">How the engagement runs</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>Site visit first. Some buildings are clearly fine, and the honest answer is a short report saying so. Where deeper investigation is needed, we tell you what it costs and why before doing it.</p>
       <p><strong>We do not find work that is not there.</strong> A consultant who never reports a clean bill of health is telling you something about their incentives, not about your building.</p>
     </div>
@@ -167,7 +176,7 @@
 </section>
 
 <section class="cta-band">
-  <div class="wrap rv">
+  <div class="wrap rv rv-blur">
     <h2>Worried about a building you <em>already own?</em></h2>
     <p>Tell us what you are seeing. If it turns out to be cosmetic, we will say so.</p>
     <div class="btn-row">

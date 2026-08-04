@@ -52,6 +52,7 @@
   },
   "address": {
     "@type": "PostalAddress",
+    "addressLocality": "Nairobi",
     "addressCountry": "KE"
   },
   "hasOfferCatalog": {
@@ -102,6 +103,15 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <!-- The burger sits inside #nav, which is its own stacking context at z-index
+       100, so it paints *under* this overlay no matter what z-index it carries.
+       It is therefore neither visible nor clickable while the menu is open, and
+       this button is the only close control. It is placed over the burger's own
+       coordinates so the control does not appear to move. -->
+  <button class="menu-close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="/">Home</a>
   <a href="/about/">About</a>
   <a href="/services/">Services</a>
   <a href="/approach/">Approach</a>
@@ -113,14 +123,32 @@
 <!-- /partial:nav -->
 
 <!-- ============ HERO ============ -->
+<!-- The hero sequence is CSS animation, not .rv. .rv waits on the
+     IntersectionObserver, which means it also waits on js/main.js: with
+     JavaScript off the whole hero used to stay at opacity 0. These run on their
+     own timeline from first paint and need nothing from the script.
+
+     Each h1 line is its own overflow:hidden block with the words inside it, so
+     the line rises out from behind an edge instead of fading. The line breaks
+     are authored rather than natural, because CSS cannot address a line box. -->
 <header class="hero" id="top">
-  <div class="hero-img" style="background-image:url('/img/tower.jpg')"></div>
+  <!-- 0.07: over the hero's one viewport of travel that is 56px of drift, which
+       lands inside both the 60px clamp and the 80px of bleed the layer carries.
+       A higher rate saturates the clamp a third of the way down and the
+       photograph then sits dead still for the rest of the hero. -->
+  <div class="hero-img" data-parallax="0.07">
+    <span class="hero-wipe"><span class="hero-photo" style="background-image:url('/img/tower.jpg')"></span></span>
+  </div>
   <svg class="hero-hex" viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 4 L95 29 L95 81 L50 106 L5 81 L5 29 Z" stroke="#C8A14D" stroke-width="1.5"/></svg>
   <div class="wrap hero-content">
-    <span class="eyebrow rv">Construction Consulting in Kenya</span>
-    <h1 class="rv d1">We see the building <em>before</em> the site does.</h1>
-    <p class="rv d2">Sight Over Site Engineering turns ideas into sustainable, high-quality structures. End-to-end building solutions that combine innovation, expertise and efficiency, from the first drawing to the final handover.</p>
-    <div class="btn-row rv d3">
+    <span class="eyebrow rise">Construction Consulting in Kenya</span>
+    <h1 class="hero-lines">
+      <span class="ln"><span>We see the</span></span>
+      <span class="ln"><span>building <em>before</em></span></span>
+      <span class="ln"><span>the site does.</span></span>
+    </h1>
+    <p class="rise">Consulting, project management and building solutions, worked out on paper before anyone breaks ground.</p>
+    <div class="btn-row rise">
       <a class="btn btn-gold" href="/contact/">Start your project</a>
       <a class="btn btn-ghost" href="/project-check/">Check if you're ready to build</a>
     </div>
@@ -136,15 +164,15 @@
 <section class="sec tight white">
   <div class="wrap">
     <div class="related">
-      <a class="rel rv" href="/services/building-solutions/">
+      <a class="rel rv rv-scale" href="/services/building-solutions/">
         <h2>Building something new</h2>
         <span class="arrow">Building solutions &rarr;</span>
       </a>
-      <a class="rel rv d1" href="/services/structural-audits/">
+      <a class="rel rv rv-scale d1" href="/services/structural-audits/">
         <h2>Worried about a structure you already own</h2>
         <span class="arrow">Structural audits and renovations &rarr;</span>
       </a>
-      <a class="rel rv d2" href="/services/project-management/">
+      <a class="rel rv rv-scale d2" href="/services/project-management/">
         <h2>Running a project that has stalled</h2>
         <span class="arrow">Project management &rarr;</span>
       </a>
@@ -155,17 +183,17 @@
 <!-- ============ ABOUT SUMMARY ============ -->
 <section class="story" id="about">
   <div class="wrap story-grid">
-    <div class="story-copy rv">
+    <div class="story-copy rv rv-left">
       <span class="eyebrow">Who we are</span>
-      <h2>Sight, before site.</h2>
+      <h2>Sight over your Site.</h2>
       <p>Every lasting structure is built twice. First with foresight, then with concrete and steel. SOSE is a Kenyan construction consulting and solutions company built on that idea: get the thinking right and the building follows.</p>
-      <p>We work across the country, from urban developments in the cities to community projects in rural areas.</p>
+      <p>Based in Nairobi, and serving countrywide in Kenya, we work from urban developments in the cities to community projects in rural areas.</p>
       <p class="mission">Our mission is to be the trusted partner for all your construction and building needs.</p>
       <p class="sec-link"><a href="/about/">Read our story &rarr;</a></p>
     </div>
-    <div class="story-media rv d2">
-      <img src="/img/facade.jpg" alt="Building facades in warm evening light" width="1200" height="800" loading="lazy" decoding="async">
-      <svg class="hex-badge" viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 5 L94 30 L94 80 L50 105 L6 80 L6 30 Z" stroke="#C8A14D" stroke-width="3"/></svg>
+    <div class="story-media">
+      <span class="wipe wipe-right d1"><img src="/img/facade.jpg" alt="Building facades in warm evening light" width="1200" height="800" loading="lazy" decoding="async"></span>
+      <svg class="hex-badge rv rv-scale d3" viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 5 L94 30 L94 80 L50 105 L6 80 L6 30 Z" stroke="#C8A14D" stroke-width="3"/></svg>
     </div>
   </div>
 </section>
@@ -223,7 +251,7 @@
       <span class="eyebrow">Where we work</span>
       <h2>From homes to infrastructure.</h2>
     </div>
-    <div class="ind-grid rv d1">
+    <div class="ind-grid rv rv-scale d1">
       <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg><span>Residential</span></div>
       <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5l8-3v19"/><path d="M12 21h8V9l-8-3"/><path d="M7 9h.01M7 13h.01M7 17h.01M16 13h.01M16 17h.01"/></svg><span>Commercial</span></div>
       <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V11l6 4V11l6 4V7l6-2v16"/><path d="M2 21h20"/></svg><span>Industrial</span></div>
@@ -238,7 +266,7 @@
 <!-- ============ WHY SOSE ============ -->
 <section class="band" id="why">
   <div class="wrap band-grid">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">Why choose SOSE</span>
       <h2>Built on the ground <em>we build on.</em></h2>
       <p>Construction in Kenya has its own physics. Regulations, suppliers, county approvals, soil, weather, timelines. We work inside that reality, not around it.</p>
@@ -250,8 +278,8 @@
         <li><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Trusted partnerships.</strong> Strong relationships with suppliers, contractors and regulators.</span></li>
       </ul>
     </div>
-    <div class="rv d2">
-      <img src="/img/excavator.jpg" alt="Excavator working on a construction site" width="1200" height="800" loading="lazy" decoding="async">
+    <div class="band-media">
+      <span class="wipe wipe-right d2"><img src="/img/excavator.jpg" alt="Excavator working on a construction site" width="1200" height="800" loading="lazy" decoding="async"></span>
     </div>
   </div>
 </section>
@@ -278,8 +306,15 @@
 
 <!-- ============ SUSTAINABILITY ============ -->
 <!-- Three lines and a link. The detail lives on the service page. -->
-<section class="sustain" style="background-image:url('/img/rebar.jpg')">
-  <div class="wrap rv">
+<!-- The photograph moved off the section and onto its own layer. It needs to be
+     transformable for the parallax drift and for the wipe, and a background on
+     the section itself is neither. .sustain-bg carries the drift, .wipe carries
+     the reveal, so the two transforms never land on one element. -->
+<section class="sustain">
+  <div class="sustain-bg" data-parallax="0.08" aria-hidden="true">
+    <span class="wipe wipe-right"><span class="sustain-photo" style="background-image:url('/img/rebar.jpg')"></span></span>
+  </div>
+  <div class="wrap rv rv-blur">
     <span class="eyebrow">Sustainability</span>
     <h2>Green construction is not a feature. <em>It's the foundation.</em></h2>
     <p>Eco-friendly practices and modern construction technologies run through every SOSE project, because a building that wastes energy, water or materials was never truly finished.</p>
@@ -322,8 +357,8 @@
 <!-- ============ CLOSING CTA ============ -->
 <section class="cta">
   <svg class="cta-hex" viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 4 L95 29 L95 81 L50 106 L5 81 L5 29 Z" stroke="#C8A14D" stroke-width="1.5"/></svg>
-  <div class="wrap rv">
-    <h2>Your next project deserves <em>sight</em> before site.</h2>
+  <div class="wrap rv rv-blur">
+    <h2>Your next project deserves <em>Sight over your Site</em>.</h2>
     <p>Tell us what you're planning (a home, a commercial development, an audit of an existing structure) and we'll tell you honestly what it takes.</p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn-gold" href="/contact/">Start your project</a>

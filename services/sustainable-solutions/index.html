@@ -64,6 +64,15 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <!-- The burger sits inside #nav, which is its own stacking context at z-index
+       100, so it paints *under* this overlay no matter what z-index it carries.
+       It is therefore neither visible nor clickable while the menu is open, and
+       this button is the only close control. It is placed over the burger's own
+       coordinates so the control does not appear to move. -->
+  <button class="menu-close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="/">Home</a>
   <a href="/about/">About</a>
   <a href="/services/">Services</a>
   <a href="/approach/">Approach</a>
@@ -92,10 +101,10 @@
 <main id="main" tabindex="-1">
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What it covers</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p>Sustainability on a real project is mostly a series of unglamorous decisions made early: which way the building faces, where the windows are, what the walls are made of, where the rainwater goes, how the building is cooled without machinery.</p>
       <p>Made at design stage, most of them cost little or nothing. Made later, they become expensive equipment bolted onto a building that was designed to fight them.</p>
     </div>
@@ -104,11 +113,11 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">What you get</span>
       <h2>Decisions that pay for themselves.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>Orientation and passive design so the building stays comfortable without mechanical cooling</li>
       <li>Material selection weighed on cost, availability, durability and impact</li>
       <li>Rainwater harvesting and water efficiency designed in, not added on</li>
@@ -121,11 +130,11 @@
 
 <section class="sec">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">When you need it</span>
       <h2>The case is strongest in these situations.</h2>
     </div>
-    <ul class="hexlist measure rv d1">
+    <ul class="hexlist measure rv rv-right d1">
       <li>You will own and operate the building, so the running cost is yours</li>
       <li>You want lower bills without a premium build cost</li>
       <li>Your project has environmental requirements to satisfy</li>
@@ -136,10 +145,10 @@
 
 <section class="sec white">
   <div class="wrap split narrow-left">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">How the engagement runs</span>
     </div>
-    <div class="measure rv d1">
+    <div class="measure rv rv-right d1">
       <p><strong>Best value comes when we are involved before the design is fixed.</strong></p>
       <p>If the design is already done, we do a review and tell you what is still worth changing and what is now too late to be worth the cost.</p>
     </div>
@@ -165,7 +174,7 @@
 </section>
 
 <section class="cta-band">
-  <div class="wrap rv">
+  <div class="wrap rv rv-blur">
     <h2>Design it to <em>cost less to run.</em></h2>
     <p>Most of these decisions cost nothing if they are made before the design is fixed.</p>
     <div class="btn-row">

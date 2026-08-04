@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | SOSE Kenya</title>
-<meta name="description" content="Tell Sight Over Site Engineering what you are planning and we will tell you honestly what it takes. Construction consulting and building solutions across Kenya.">
+<meta name="description" content="Tell Sight Over Site Engineering what you are planning and we will tell you honestly what it takes. Construction consulting and building solutions from Nairobi, serving countrywide in Kenya.">
 <link rel="canonical" href="https://www.sosengineeringke.com/contact/">
 <meta property="og:site_name" content="Sight Over Site Engineering">
 <meta property="og:locale" content="en_KE">
@@ -64,6 +64,15 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <!-- The burger sits inside #nav, which is its own stacking context at z-index
+       100, so it paints *under* this overlay no matter what z-index it carries.
+       It is therefore neither visible nor clickable while the menu is open, and
+       this button is the only close control. It is placed over the burger's own
+       coordinates so the control does not appear to move. -->
+  <button class="menu-close" id="menuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="/">Home</a>
   <a href="/about/">About</a>
   <a href="/services/">Services</a>
   <a href="/approach/">Approach</a>
@@ -91,7 +100,7 @@
 <main id="main" tabindex="-1">
 <section class="sec">
   <div class="wrap contact-grid">
-    <div class="rv">
+    <div class="rv rv-left">
       <span class="eyebrow">Details</span>
       <div class="c-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
@@ -111,12 +120,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
         <div>
           <span class="lbl">Location</span>
-          <span class="v">Kenya, serving clients nationwide</span>
+          <span class="v">Nairobi, and serving countrywide in Kenya.</span>
         </div>
       </div>
     </div>
 
-    <div class="form rv d1">
+    <div class="form rv rv-right d1">
       <h2>Tell us about the project</h2>
       <p>The more you can say now, the more useful the first reply will be.</p>
 
@@ -187,7 +196,7 @@
 </section>
 
 <section class="cta-band">
-  <div class="wrap rv">
+  <div class="wrap rv rv-blur">
     <h2>Or skip the <em>form entirely.</em></h2>
     <p>If a form is not how you want to start, write to us directly and say what you are planning. We read every one.</p>
     <div class="btn-row">

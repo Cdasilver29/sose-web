@@ -10,7 +10,8 @@ solutions company. The site's job is to make a serious developer, homeowner, or
 institution believe SOSE can be trusted with a build worth millions of
 shillings, then get them to make contact.
 
-Contact: info@sosengineeringke.com · www.sosengineeringke.com · Kenya, nationwide.
+Contact: info@sosengineeringke.com · www.sosengineeringke.com · Nairobi, and
+serving countrywide in Kenya.
 
 ## Architecture
 
@@ -203,8 +204,11 @@ also works as a whole-card link: use `<a class="svc">` with an `h2` and a
 Confident, plain, specific. Short sentences carry weight. Write like an engineer
 explaining something to a client who is spending their own money.
 
-The running theme is the name: sight before site. Foresight is the product. Use
-it where it earns its place, do not run it into the ground.
+The running theme is the name: Sight over your Site. Foresight is the product.
+Use it where it earns its place, do not run it into the ground. The wording and
+the capitalisation are both fixed — "Sight over your Site", capital S on both
+nouns, lowercase "over" and "your" — so it stays distinct from the full company
+name, "Sight Over Site Engineering".
 
 Words that do not appear on this site: cutting-edge, world-class, robust,
 synergy, seamless, best-in-class, leverage, unlock, empower.

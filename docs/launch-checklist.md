@@ -27,9 +27,10 @@ These block launch outright.
       protection law.** See section 2 below; there is a specific sentence in it
       that commits SOSE to something they have not agreed to.
 
-- [ ] **SOSE confirms the site may state "Kenya, serving clients nationwide"**
-      as its only address, or supplies a physical one. This appears on
-      `/contact/` and in the JSON-LD on the home page.
+- [ ] **SOSE confirms the site may state "Nairobi, and serving countrywide in
+      Kenya."** as its only address, or supplies a physical one. This appears on
+      `/contact/`, on `/about/` and in the JSON-LD on the home page, where
+      `addressLocality` is now set to Nairobi.
 
 - [ ] **Domain, TLS and canonical host settled.** Every canonical URL, the
       sitemap and the Open Graph tags are hard-coded to
@@ -92,8 +93,9 @@ stands alone. Nothing on this list may be invented to fill the gap.
 ### Visibly missing, but the site can launch without them
 
 - [ ] 1. Phone number and WhatsApp number for the contact page.
-- [ ] 2. Physical office address, or confirmation that "Kenya, nationwide" is
-      correct. (Also a hard gate — see section 1.)
+- [ ] 2. Physical office address in Nairobi, or confirmation that "Nairobi, and
+      serving countrywide in Kenya." is correct. (Also a hard gate — see
+      section 1.)
 - [ ] 3. Working hours.
 - [ ] 4. Confirmation of which engagement models SOSE actually offers
       (advisory, project-managed delivery, full building solutions) and any

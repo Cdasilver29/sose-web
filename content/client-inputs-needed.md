@@ -6,7 +6,8 @@ this list should be invented to fill a gap. Send this to the client as-is.
 ## Blocking (site can launch without these, but they are visibly missing)
 
 1. Phone number and WhatsApp number for the contact page
-2. Physical office address, or confirmation that "Kenya, nationwide" is correct
+2. Physical office address in Nairobi, or confirmation that "Nairobi, and
+   serving countrywide in Kenya." is correct
 3. Working hours
 4. Confirmation of which engagement models they actually offer (advisory,
    project-managed delivery, full building solutions) and any minimum project size
