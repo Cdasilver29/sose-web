@@ -1,0 +1,21 @@
+# Not part of the site. The repo is still the deployable artifact — there is no
+# build step — but none of this needs serving from the client's domain.
+
+# Copy source of truth, and the list of what SOSE has not supplied yet.
+content/
+
+# Internal notes, including the launch checklist.
+docs/
+BUILD-PLAN.md
+CLAUDE.md
+README.md
+
+# Dev tooling. sync-partials.mjs and check-links.mjs run locally, never on
+# deploy; the partials are already inlined into every page. If a build step is
+# ever added that calls them, remove this line first.
+tools/
+
+# Local editor and agent config.
+.claude/
+
+node_modules/

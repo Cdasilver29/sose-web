@@ -120,10 +120,13 @@ stands alone. Nothing on this list may be invented to fill the gap.
 - [ ] 11. Confirm data retention periods for the privacy page. (See section 2.)
 - [ ] 12. Confirm whether registration as a data controller applies.
 - [ ] 13. Confirm whether any analytics or third-party tools will be used, so
-      the privacy page is accurate on day one. **If any are added later, the
-      privacy page has to change the same day** — it currently states plainly
-      that the site loads nothing from anywhere else, and that statement is
-      only true while it is true.
+      the privacy page is accurate on day one. **If any are added later, two
+      files have to change the same day**: `/privacy/`, which states plainly
+      that the site loads nothing from anywhere else, and the
+      `Content-Security-Policy` header in `vercel.json`, which is
+      `default-src 'self'` and will silently block the new resource in the
+      browser. The blocked-request console error is the symptom; the CSP is
+      the cause.
 - [ ] 14. Legal review of the privacy page before launch. (Hard gate.)
 
 ### Assets
