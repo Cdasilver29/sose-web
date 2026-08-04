@@ -378,8 +378,15 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 34p
 .foot-nav{display:flex;gap:28px;list-style:none;flex-wrap:wrap}
 .foot-nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.86rem}
 .foot-nav a:hover{color:var(--gold-soft)}
-.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:26px;font-size:.8rem;color:rgba(255,255,255,.45)}
+/* .55 rather than the .45 this used to carry. White at .45 over --navy-deep
+   composites to 4.44:1, which is under the 4.5:1 AA floor for text this size,
+   and rule 4 does not have a "nearly" in it. .55 measures 6.07:1. */
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:26px;font-size:.8rem;color:rgba(255,255,255,.55)}
 .foot-bottom .tag{font-style:italic;font-family:'Playfair Display',serif}
+/* The developer credit sits under the copyright line, smaller, but not fainter:
+   it is subordinate by size and position, which is enough. Dropping the opacity
+   as well is what would push it back under AA. */
+.foot-dev{display:block;margin-top:7px;font-size:.72rem;color:rgba(255,255,255,.55)}
 
 /* =========================================================
    MULTI-PAGE ADDITIONS (v2)
