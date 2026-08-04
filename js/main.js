@@ -1,13 +1,25 @@
 // SOSE site behaviour. Vanilla, no dependencies, loaded with defer on every page.
 
 // ---- nav scroll state -------------------------------------------------
+// The class goes on <html>, not on #nav. The breadcrumb bar is a sibling of the
+// nav and has to react to the same state, and it reads --nav-h to position
+// itself, which only works if the variable is overridden on an ancestor.
 const nav = document.getElementById('nav');
-const setNavState = () => nav.classList.toggle('scrolled', scrollY > 40);
-addEventListener('scroll', setNavState, { passive: true });
-setNavState();
+const root = document.documentElement;
 
-// Interior pages have a solid header behind the nav, so keep the nav opaque.
-if (!document.querySelector('.hero')) nav.classList.add('scrolled');
+// Only the home page has a hero to sit transparently over. Everywhere else the
+// header is permanently in its compressed state, so the listener is not
+// attached at all. Toggling on scroll *and* force-adding the class, as this
+// did before, meant any scroll back to the top removed it again; that was
+// invisible when the class only changed a background, but it now drives
+// --nav-h, and the breadcrumb bar would jump 12px.
+if (document.querySelector('.hero')) {
+  const setNavState = () => root.classList.toggle('scrolled', scrollY > 40);
+  addEventListener('scroll', setNavState, { passive: true });
+  setNavState();
+} else {
+  root.classList.add('scrolled');
+}
 
 // ---- active route -----------------------------------------------------
 // Marks the current section in both navs. A page under /services/ marks the
@@ -56,12 +68,33 @@ if (!document.querySelector('.hero')) nav.classList.add('scrolled');
 const burger = document.getElementById('burger');
 const menu = document.getElementById('mobileMenu');
 if (burger && menu) {
+  // The breadcrumb bar is hidden under 820px, so the overlay carries the trail
+  // instead. Cloned as plain text, not links: in a fullscreen menu it is there
+  // to say where you are, and everything around it is already navigation.
+  const crumbBar = document.querySelector('.crumb-bar');
+
   const setMenu = (isOpen) => {
     menu.classList.toggle('open', isOpen);
     burger.classList.toggle('open', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
     burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     document.body.style.overflow = isOpen ? 'hidden' : '';
+
+    // Always clear first, so repeated opens cannot stack duplicates.
+    const previous = menu.querySelector('.menu-crumb');
+    if (previous) previous.remove();
+    if (isOpen && crumbBar) {
+      const trail = document.createElement('p');
+      trail.className = 'menu-crumb';
+      // Built from the steps, not from textContent: the separators are
+      // aria-hidden spans with no whitespace around them, so the raw text
+      // would read "Home/ Services/ Structural Audits".
+      trail.textContent = [...crumbBar.querySelectorAll('a, span:not([aria-hidden])')]
+        .map((el) => el.textContent.trim())
+        .filter(Boolean)
+        .join(' / ');
+      menu.prepend(trail);
+    }
   };
 
   burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));

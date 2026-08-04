@@ -1,8 +1,8 @@
-# Field notes — index
+# Field notes: index
 
 The index page for the articles in `content/insights/`. It sells nothing. Each
-card carries that article's own frontmatter verbatim — category, title, summary,
-reading time — so the card and the article never drift apart. Newest first.
+card carries that article's own frontmatter verbatim (category, title, summary,
+reading time) so the card and the article never drift apart. Newest first.
 
 Page header
 Eyebrow: Field notes

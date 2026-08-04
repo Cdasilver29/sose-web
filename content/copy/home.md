@@ -2,7 +2,7 @@
 
 ## Hero
 
-Eyebrow: Construction Consulting · Kenya
+Eyebrow: Construction Consulting in Kenya
 H1: We see the building before the site does.
 Standfirst: Sight Over Site Engineering turns ideas into sustainable, high-quality
 structures. End-to-end building solutions that combine innovation, expertise and
@@ -44,7 +44,19 @@ Eyebrow: What we do
 H2: Five services. One standard.
 Standfirst: From the first feasibility conversation to the final structural
 sign-off, every engagement gets the same discipline.
-Show all five service cards with one-line descriptions, each linking to its page.
+Five cards, one per service, each linking to its page:
+- Construction Consulting. Expert guidance from project planning to completion:
+  feasibility, budgeting, compliance and technical direction before a single
+  stone moves.
+- Project Management. Streamlined execution that keeps timelines and budgets
+  honest: one accountable team coordinating contractors, suppliers and approvals.
+- Building Solutions. Tailored designs and construction for residential,
+  commercial and industrial projects, built to purpose rather than to template.
+- Structural Audits and Renovations. Professional assessments and upgrades for
+  existing buildings. Know exactly what a structure can carry, and what it needs
+  next.
+- Sustainable Solutions. Eco-friendly practices and modern technologies for green
+  construction. Buildings that cost less to run and last longer.
 Link: All services → /services
 
 ## Sectors strip
@@ -55,7 +67,7 @@ mode there. This is a summary, not a second copy of that page.
 
 Eyebrow: Where we work
 H2: From homes to infrastructure.
-Six items: Residential · Commercial · Industrial · Institutional · Government ·
+Six items: Residential, Commercial, Industrial, Institutional, Government,
 Infrastructure
 Link: All six sectors → /sectors
 
@@ -107,6 +119,6 @@ Link: All field notes → /insights
 ## Closing CTA
 
 H2: Your next project deserves sight before site.
-Body: Tell us what you're planning, a home, a commercial development, an audit of
-an existing structure, and we'll tell you honestly what it takes.
+Body: Tell us what you're planning (a home, a commercial development, an audit of
+an existing structure) and we'll tell you honestly what it takes.
 CTAs: Start your project → /contact · Talk to an engineer → mailto

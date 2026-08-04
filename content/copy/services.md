@@ -1,4 +1,4 @@
-# Services — index
+# Services: index
 
 The index page for the five services. It does not sell any one of them; it puts
 them in front of the reader and lets them pick the door. Each card carries the

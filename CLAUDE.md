@@ -45,6 +45,15 @@ Rules that follow from this:
 
 - Never hand-edit the nav or footer inside a page. Edit `tools/partials/` and
   run `npm run sync`.
+- **`.crumb-bar` must stay outside the partial markers.** Each of the 16
+  interior pages carries its own `<nav class="crumb-bar">` immediately after
+  the closing `<!-- /partial:nav -->`. It looks like it belongs in the nav
+  partial, and visually it does, but the sync tool replaces everything between
+  the markers: put it inside and all 16 pages get whichever trail synced last,
+  and `npm run check` then reports them as matching, because they would be.
+  A silent, uniform, wrong breadcrumb on every page is the failure mode.
+  Moving it into the partial is only safe once the partial system can take
+  per-page values, and nothing in the tooling does that today.
 - Every new page must include both partial markers, or `npm run check` fails.
 - Never introduce a framework, a bundler, or a client-side router. If the site
   ever needs a CMS, many blog posts, or a projects database, that is the moment
@@ -54,10 +63,16 @@ Rules that follow from this:
 ## Reference page
 
 `services/structural-audits/index.html` is the pattern for every interior page.
-Copy its structure: head block, partial markers, `.page-header` with
-breadcrumbs, alternating `.sec` and `.sec.white` bands, a `.related` block, a
-contextual `.cta-band`, then the footer partial. Match it rather than inventing
-a new arrangement.
+Copy its structure: head block, partial markers, the page's own `.crumb-bar`,
+`.page-header`, alternating `.sec` and `.sec.white` bands, a `.related` block,
+a contextual `.cta-band`, then the footer partial. Match it rather than
+inventing a new arrangement.
+
+Interior pages carry `class="scrolled"` on `<html>`. The header is permanently
+compressed on them, and `js/main.js` is deferred, so without it every interior
+page would render one frame at the taller height and then visibly snap. The
+class also keeps the header correct with JavaScript off. Home does not have it:
+its hero needs the transparent, full-height state until you scroll.
 
 `index.html` is the home page, ported from v1. It is the only page with a
 full-viewport hero.
