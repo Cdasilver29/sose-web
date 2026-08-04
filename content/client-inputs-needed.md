@@ -15,8 +15,8 @@ this list should be invented to fill a gap. Send this to the client as-is.
 ## Unlocks whole sections when supplied
 
 6. Real projects. Three to five, each with: what it was, where, what SOSE did,
-   when, one photograph, and permission to publish. This unlocks the Projects
-   route, which is built but not shipped.
+   when, one photograph, and permission to publish. Nothing at /projects/ has
+   been built: the route ships the day this arrives, and not before.
 7. Client testimonials with named permission. Unlocks the testimonial component.
 8. Team. Names, roles, qualifications, registrations, one photograph each.
    Buyers of engineering services look for this.

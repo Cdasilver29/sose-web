@@ -75,6 +75,22 @@
     },
   ];
 
+  // Short labels for the emailed and copied summary. A mailto: URL has a
+  // practical ceiling around 2,000 characters, and the full question wording
+  // put the worst-case body within a couple of hundred of it — close enough
+  // that a ninth question would have broken the send. These name the subject of
+  // each question instead of repeating it. Copy is in content/copy/project-check.md.
+  const SHORT = {
+    q1: 'Land title',
+    q2: 'Permitted use',
+    q3: 'Approvals',
+    q4: 'Soil investigation',
+    q5: 'Drawings',
+    q6: 'Surface water',
+    q7: 'Budget and contingency',
+    q8: 'Scope and variations',
+  };
+
   const ANSWER_LABEL = { yes: 'Yes', no: 'No', unsure: 'Not sure' };
   const FRAMING =
     'This is a prompt to think, not an engineering assessment. It cannot see your site, your drawings or your budget.';
@@ -137,7 +153,11 @@
     ].join('');
   };
 
-  // Plain text version, used for both the email body and the clipboard.
+  // Plain text version, used for both the email body and the clipboard. Kept
+  // short on purpose: this is the mailto: body, and the whole thing has to
+  // survive being URL-encoded into a link. The band, the blank lines between
+  // blocks and the framing line are the parts that carry meaning, so they stay
+  // whole; the questions are named, not quoted.
   const asText = (r) => {
     const lines = [`Project readiness check: ${r.clear} of ${questions.length} checks clear.`, ''];
     let group = '';
@@ -147,8 +167,7 @@
         group = heading;
         lines.push(group);
       }
-      lines.push(`${i + 1}. ${text(q.querySelector('legend'))}`);
-      lines.push(`   ${ANSWER_LABEL[answers[q.dataset.q]]}`);
+      lines.push(`${i + 1}. ${SHORT[q.dataset.q]}: ${ANSWER_LABEL[answers[q.dataset.q]]}`);
     });
     lines.push('', `Result: ${r.band.title}`, r.band.body);
     if (r.anyUnsure) lines.push('', UNSURE_NOTE);

@@ -87,8 +87,14 @@ full-viewport hero.
    If a page needs a line that content does not have, add it to content first,
    then build.
 4. Accessibility floor on every page: semantic landmarks, exactly one `h1`,
-   labelled icon-only controls, visible focus rings, AA contrast,
-   `prefers-reduced-motion` respected.
+   no heading level skipped, labelled icon-only controls, visible focus rings,
+   AA contrast, `prefers-reduced-motion` respected.
+
+   Every page opens with a `.skip` link (in the nav partial) targeting
+   `<main id="main" tabindex="-1">`, so every page needs that `main`. Focus
+   rings come from one baseline rule near the foot of `css/styles.css`;
+   components that draw their own out-specify it. Anything hidden must be
+   hidden from the tab order too — `visibility`, not just `opacity`.
 
 ## Brand tokens
 
@@ -96,11 +102,33 @@ Defined in `:root` in `css/styles.css`. Never hardcode a colour.
 
 ```css
 --navy: #0B1F4D;  --navy-deep: #071335;
---gold: #C8A14D;  --gold-soft: #D9BC7A;
+--gold: #C8A14D;  --gold-soft: #D9BC7A;  --gold-ink: #8A6A22;
 --paper: #F9F7F2; --ink: #1B2438; --muted: #5C6478; --hairline: #E5E1D6;
 ```
 
+There are three golds and they are not interchangeable. On a light ground
+`--gold` measures 2.26:1 and `--gold-soft` 1.72:1, both far under AA, so
+neither may ever carry text there. `--gold-ink` is the same hue carried down
+until it passes: 4.71:1 on paper, 5.04:1 on white. The rule:
+
+- **Text, focus rings and any icon that must be read on paper or white** →
+  `--gold-ink`.
+- **Text on navy** → `--gold-soft` (9.8:1) or `--gold` (7.5:1).
+- **Decoration anywhere** — rules, dashes, borders, hexagon fills, hover
+  border colours, gradients → `--gold`, on either ground.
+
+The `.eyebrow` defaults to `--gold-ink` because it sits on a light ground on
+every interior page; the home page's dark bands opt back into `--gold-soft`.
+
 Type: Playfair Display for headings, Inter for body and UI. Nothing else.
+Both are self-hosted from `/fonts/` as variable woff2 and declared with
+`font-display:swap` at the top of `css/styles.css`. Three faces, 107 KB, latin
+subset only — Inter 400–700, Playfair 400–700, Playfair italic 500. The
+latin-ext subset was dropped because no character painted anywhere on the site
+falls in it; if copy ever needs one, the glyph falls back to the system font
+until that face is added back. The site makes no third-party request of any
+kind — no Google Fonts link, no preconnect, nothing. `/privacy/` states that
+plainly, so if anything external is ever added, that page changes the same day.
 
 The gold hexagon from the logo is the signature motif: the nav wordmark's O,
 the hero background mark, the page header watermark, the checkmark shape, the
@@ -131,6 +159,12 @@ whether the hexagon can do that job.
 
 Deliberately absent: Projects, Testimonials, Team. All three ship the day SOSE
 supplies real content, not before.
+
+Non-route files at the root, all hand-written or generated once, none built:
+`sitemap.xml` (add a line when you add a route), `robots.txt`,
+`site.webmanifest`, `favicon.ico`, and `/img/icon-*.png` plus `/img/og.png`,
+which were rasterised from `/img/logo.png`. `docs/launch-checklist.md` is the
+gate list for going live.
 
 ## CSS conventions
 

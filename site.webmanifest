@@ -1,0 +1,13 @@
+{
+  "name": "Sight Over Site Engineering",
+  "short_name": "SOSE",
+  "description": "Kenyan construction consulting and building solutions.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F9F7F2",
+  "theme_color": "#0B1F4D",
+  "icons": [
+    { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

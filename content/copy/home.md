@@ -12,9 +12,18 @@ Secondary CTA: Check if you're ready to build → /project-check
 
 ## Intro strip (three doors, one per audience)
 
+Three cards directly under the hero. The heading is the reader's situation; the
+link line names the service that answers it, so nobody has to guess where the
+card goes.
+
 Building something new → /services/building-solutions
+  Link line: Building solutions
+
 Worried about a structure you already own → /services/structural-audits
+  Link line: Structural audits and renovations
+
 Running a project that has stalled → /services/project-management
+  Link line: Project management
 
 ## About summary
 
@@ -38,6 +47,18 @@ sign-off, every engagement gets the same discipline.
 Show all five service cards with one-line descriptions, each linking to its page.
 Link: All services → /services
 
+## Sectors strip
+
+Sits directly after the services summary. Six sectors, icon and name only, no
+descriptions: the sectors page owns those, and each one names its own failure
+mode there. This is a summary, not a second copy of that page.
+
+Eyebrow: Where we work
+H2: From homes to infrastructure.
+Six items: Residential · Commercial · Industrial · Institutional · Government ·
+Infrastructure
+Link: All six sectors → /sectors
+
 ## Why SOSE
 
 Eyebrow: Why choose SOSE
@@ -60,6 +81,19 @@ through the same path, so you always know where you stand.
 Show the five step names on the hexagon timeline, names only, no descriptions.
 The process exists in full on /approach/ and nowhere else.
 Link: See how a project runs → /approach
+
+## Sustainability band
+
+Sits directly after the process summary. Full-bleed photograph behind a dark
+wash, centred text. Three lines and a link; the detail belongs on the service
+page.
+
+Eyebrow: Sustainability
+H2: Green construction is not a feature. It's the foundation.
+Body: Eco-friendly practices and modern construction technologies run through
+every SOSE project, because a building that wastes energy, water or materials
+was never truly finished.
+Link: How we build green → /services/sustainable-solutions
 
 ## Insights teaser
 

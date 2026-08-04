@@ -56,20 +56,25 @@ if (!document.querySelector('.hero')) nav.classList.add('scrolled');
 const burger = document.getElementById('burger');
 const menu = document.getElementById('mobileMenu');
 if (burger && menu) {
-  burger.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
+  const setMenu = (isOpen) => {
+    menu.classList.toggle('open', isOpen);
     burger.classList.toggle('open', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
+    burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     document.body.style.overflow = isOpen ? 'hidden' : '';
+  };
+
+  burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+
+  // Escape closes it and hands focus back, so the menu is not a trap for
+  // anyone driving this from the keyboard.
+  addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      setMenu(false);
+      burger.focus();
+    }
   });
-  menu.querySelectorAll('a').forEach((a) =>
-    a.addEventListener('click', () => {
-      menu.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    })
-  );
 }
 
 // ---- reveal on scroll, once -------------------------------------------
@@ -93,17 +98,23 @@ if (sendBtn) {
     const name = document.getElementById('name');
     const email = document.getElementById('email');
     const msg = document.getElementById('msg');
-    let ok = true;
-    const check = (wrapId, valid) => {
+    let firstBad = null;
+    const check = (wrapId, field, valid) => {
       document.getElementById(wrapId).classList.toggle('bad', !valid);
-      if (!valid) ok = false;
+      field.setAttribute('aria-invalid', String(!valid));
+      if (!valid && !firstBad) firstBad = field;
     };
-    check('fName', name.value.trim().length > 1);
-    check('fEmail', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()));
-    check('fMsg', msg.value.trim().length > 5);
-    if (!ok) return;
-    // /contact/ adds phone, project type and location; the home page form has
-    // none of them. Each is included only when it is present and filled.
+    check('fName', name, name.value.trim().length > 1);
+    check('fEmail', email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()));
+    check('fMsg', msg, msg.value.trim().length > 5);
+    // Send focus to the first problem rather than leaving the reader to hunt
+    // for a red border they may not be able to see.
+    if (firstBad) {
+      firstBad.focus();
+      return;
+    }
+    // The form lives on /contact/ only. Phone, project type and location are
+    // each included only when present and filled.
     const optional = (id, label) => {
       const el = document.getElementById(id);
       const value = el && el.value.trim();

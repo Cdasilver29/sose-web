@@ -5,32 +5,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sight Over Site Engineering — Construction Consulting & Building Solutions, Kenya</title>
 <meta name="description" content="SOSE is a Kenyan construction consulting and building solutions company. Construction consulting, project management, structural audits, renovations and sustainable construction.">
+<link rel="canonical" href="https://www.sosengineeringke.com/">
+<meta property="og:site_name" content="Sight Over Site Engineering">
+<meta property="og:locale" content="en_KE">
 <meta property="og:title" content="Sight Over Site Engineering (SOSE)">
 <meta property="og:description" content="Building solutions you can trust, consulting you can rely on. Kenya.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.sosengineeringke.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://www.sosengineeringke.com/">
+<meta property="og:image" content="https://www.sosengineeringke.com/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The SOSE wordmark, Sight Over Site Engineering">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sight Over Site Engineering (SOSE)">
+<meta name="twitter:description" content="Building solutions you can trust, consulting you can rely on. Kenya.">
+<meta name="twitter:image" content="https://www.sosengineeringke.com/img/og.png">
+<meta name="twitter:image:alt" content="The SOSE wordmark, Sight Over Site Engineering">
+<meta name="theme-color" content="#0B1F4D">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/img/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/img/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!-- The hero is a CSS background, so nothing discovers it until the stylesheet
+     has parsed. It is the largest paint on the page; preload it. -->
+<link rel="preload" href="/img/tower.jpg" as="image" fetchpriority="high">
+<link rel="stylesheet" href="/css/styles.css">
+<script src="/js/main.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://www.sosengineeringke.com/#organisation",
   "name": "Sight Over Site Engineering",
   "alternateName": "SOSE",
-  "description": "Kenyan construction consulting and building solutions company.",
+  "description": "Kenyan construction consulting and building solutions company. Construction consulting, project management, building solutions, structural audits and renovations, and sustainable construction.",
   "email": "info@sosengineeringke.com",
-  "url": "https://www.sosengineeringke.com",
-  "areaServed": "Kenya"
+  "url": "https://www.sosengineeringke.com/",
+  "logo": "https://www.sosengineeringke.com/img/logo.png",
+  "image": "https://www.sosengineeringke.com/img/og.png",
+  "slogan": "Building solutions you can trust, consulting you can rely on.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Kenya"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KE"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Construction services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Construction Consulting", "url": "https://www.sosengineeringke.com/services/construction-consulting/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Project Management", "url": "https://www.sosengineeringke.com/services/project-management/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Building Solutions", "url": "https://www.sosengineeringke.com/services/building-solutions/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Structural Audits and Renovations", "url": "https://www.sosengineeringke.com/services/structural-audits/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sustainable Solutions", "url": "https://www.sosengineeringke.com/services/sustainable-solutions/" } }
+    ]
+  }
 }
 </script>
-<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
 <!-- ============ NAV ============ -->
 <!-- partial:nav -->
-<nav id="nav">
+<a class="skip" href="#main">Skip to content</a>
+<nav id="nav" aria-label="Main">
   <div class="wrap nav-inner">
     <a href="/" class="logo on-dark" aria-label="SOSE, Sight Over Site Engineering, home">
       <span class="logo-word">S<svg class="logo-hex" viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="#C8A14D" stroke-width="9"/></svg>SE</span>
@@ -78,31 +121,56 @@
     <h1 class="rv d1">We see the building <em>before</em> the site does.</h1>
     <p class="rv d2">Sight Over Site Engineering turns ideas into sustainable, high-quality structures — end-to-end building solutions that combine innovation, expertise and efficiency, from first drawing to final handover.</p>
     <div class="btn-row rv d3">
-      <a class="btn btn-gold" href="#contact">Start Your Project</a>
-      <a class="btn btn-ghost" href="mailto:info@sosengineeringke.com">Talk to an Engineer</a>
+      <a class="btn btn-gold" href="/contact/">Start your project</a>
+      <a class="btn btn-ghost" href="/project-check/">Check if you're ready to build</a>
     </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">Scroll</div>
 </header>
 
-<!-- ============ ABOUT / STORY ============ -->
+<main id="main" tabindex="-1">
+
+<!-- ============ THREE DOORS ============ -->
+<!-- One card per audience. Whoever arrives here is in one of three situations,
+     and each card goes straight to the service that answers it. -->
+<section class="sec tight white">
+  <div class="wrap">
+    <div class="related">
+      <a class="rel rv" href="/services/building-solutions/">
+        <h2>Building something new</h2>
+        <span class="arrow">Building solutions &rarr;</span>
+      </a>
+      <a class="rel rv d1" href="/services/structural-audits/">
+        <h2>Worried about a structure you already own</h2>
+        <span class="arrow">Structural audits and renovations &rarr;</span>
+      </a>
+      <a class="rel rv d2" href="/services/project-management/">
+        <h2>Running a project that has stalled</h2>
+        <span class="arrow">Project management &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT SUMMARY ============ -->
 <section class="story" id="about">
   <div class="wrap story-grid">
     <div class="story-copy rv">
       <span class="eyebrow">Who we are</span>
       <h2>Sight, before site.</h2>
-      <p>Every lasting structure is built twice — first with foresight, then with concrete and steel. Sight Over Site Engineering (SOSE) is a Kenyan construction consulting and solutions company built on that idea: get the thinking right, and the building follows.</p>
-      <p>We provide end-to-end building solutions across Kenya, serving clients from urban developments in the cities to community projects in rural areas — combining innovation, expertise and efficiency to deliver projects that stand the test of time.</p>
+      <p>Every lasting structure is built twice. First with foresight, then with concrete and steel. SOSE is a Kenyan construction consulting and solutions company built on that idea: get the thinking right and the building follows.</p>
+      <p>We work across the country, from urban developments in the cities to community projects in rural areas.</p>
       <p class="mission">Our mission is to be the trusted partner for all your construction and building needs.</p>
+      <p class="sec-link"><a href="/about/">Read our story &rarr;</a></p>
     </div>
     <div class="story-media rv d2">
-      <img src="/img/facade.jpg" alt="Building facades in warm evening light" loading="lazy">
+      <img src="/img/facade.jpg" alt="Building facades in warm evening light" width="1200" height="800" loading="lazy" decoding="async">
       <svg class="hex-badge" viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 5 L94 30 L94 80 L50 105 L6 80 L6 30 Z" stroke="#C8A14D" stroke-width="3"/></svg>
     </div>
   </div>
 </section>
 
-<!-- ============ SERVICES ============ -->
+<!-- ============ SERVICES SUMMARY ============ -->
 <section class="services" id="services">
   <div class="wrap">
     <div class="sec-head center rv">
@@ -111,32 +179,59 @@
       <p>From the first feasibility conversation to the final structural sign-off, every engagement gets the same discipline.</p>
     </div>
     <div class="svc-grid">
-      <article class="svc rv">
+      <a class="svc rv" href="/services/construction-consulting/">
         <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
         <h3>Construction Consulting</h3>
         <p>Expert guidance from project planning to completion — feasibility, budgeting, compliance and technical direction before a single stone moves.</p>
-      </article>
-      <article class="svc rv d1">
+        <span class="arrow">See the service &rarr;</span>
+      </a>
+      <a class="svc rv d1" href="/services/project-management/">
         <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>
         <h3>Project Management</h3>
         <p>Streamlined execution that keeps timelines and budgets honest — one accountable team coordinating contractors, suppliers and approvals.</p>
-      </article>
-      <article class="svc rv d2">
+        <span class="arrow">See the service &rarr;</span>
+      </a>
+      <a class="svc rv d2" href="/services/building-solutions/">
         <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
         <h3>Building Solutions</h3>
         <p>Tailored designs and construction for residential, commercial and industrial projects — built to purpose, not to template.</p>
-      </article>
-      <article class="svc rv d1">
+        <span class="arrow">See the service &rarr;</span>
+      </a>
+      <a class="svc rv d1" href="/services/structural-audits/">
         <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 8l7-5 7 5"/><path d="M4 21h16"/><path d="M7 21v-8"/><path d="M17 21v-8"/></svg>
         <h3>Structural Audits &amp; Renovations</h3>
         <p>Professional assessments and upgrades for existing buildings — knowing exactly what a structure can carry, and what it needs next.</p>
-      </article>
-      <article class="svc rv d2">
+        <span class="arrow">See the service &rarr;</span>
+      </a>
+      <a class="svc rv d2" href="/services/sustainable-solutions/">
         <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-8 8-10 5 2 8 6 8 10a7 7 0 0 1-7 7"/><path d="M12 22v-6"/></svg>
         <h3>Sustainable Solutions</h3>
         <p>Eco-friendly practices and modern technologies for green construction — buildings that cost less to run and last longer.</p>
-      </article>
+        <span class="arrow">See the service &rarr;</span>
+      </a>
     </div>
+    <p class="sec-link rv"><a href="/services/">All services &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ============ SECTORS STRIP ============ -->
+<!-- Names and icons only. Each sector's failure mode is named on /sectors/,
+     which owns that copy; this is a summary, not a second copy of it. -->
+<section class="industries">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="eyebrow">Where we work</span>
+      <h2>From homes to infrastructure.</h2>
+    </div>
+    <div class="ind-grid rv d1">
+      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg><span>Residential</span></div>
+      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5l8-3v19"/><path d="M12 21h8V9l-8-3"/><path d="M7 9h.01M7 13h.01M7 17h.01M16 13h.01M16 17h.01"/></svg><span>Commercial</span></div>
+      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V11l6 4V11l6 4V7l6-2v16"/><path d="M2 21h20"/></svg><span>Industrial</span></div>
+      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M4 21V9l8-5 8 5v12"/><path d="M12 21v-4"/><path d="M8 12h8"/><path d="M8 16h8"/></svg><span>Institutional</span></div>
+      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V8l6-4 6 4v14"/><path d="M2 22h20"/><path d="M12 22v-5"/><circle cx="12" cy="11" r="2"/></svg><span>Government</span></div>
+      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20V10a8 8 0 0 1 16 0v10"/><path d="M9 20v-6a3 3 0 0 1 6 0v6"/></svg><span>Infrastructure</span></div>
+    </div>
+    <p class="sec-link rv"><a href="/sectors/">All six sectors &rarr;</a></p>
   </div>
 </section>
 
@@ -148,38 +243,20 @@
       <h2>Built on the ground <em>we build on.</em></h2>
       <p>Construction in Kenya has its own physics — regulations, suppliers, county approvals, soil, weather, timelines. We work inside that reality, not around it.</p>
       <ul class="checks">
-        <li><svg viewBox="0 0 100 110" fill="none"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Local expertise.</strong> Deep understanding of Kenya's construction landscape.</span></li>
-        <li><svg viewBox="0 0 100 110" fill="none"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Quality assurance.</strong> Enduring compliance to standards and best practices.</span></li>
-        <li><svg viewBox="0 0 100 110" fill="none"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Client-centered approach.</strong> Solutions customised to your vision and your budget.</span></li>
-        <li><svg viewBox="0 0 100 110" fill="none"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Innovation &amp; technology.</strong> Modern tools and techniques for efficient delivery.</span></li>
-        <li><svg viewBox="0 0 100 110" fill="none"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Trusted partnerships.</strong> Strong relationships with suppliers, contractors and regulators.</span></li>
+        <li><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Local expertise.</strong> Deep understanding of Kenya's construction landscape.</span></li>
+        <li><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Quality assurance.</strong> Enduring compliance to standards and best practices.</span></li>
+        <li><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Client-centered approach.</strong> Solutions customised to your vision and your budget.</span></li>
+        <li><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Innovation &amp; technology.</strong> Modern tools and techniques for efficient delivery.</span></li>
+        <li><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 6 L92 30 L92 80 L50 104 L8 80 L8 30 Z" stroke="currentColor" stroke-width="7"/><path d="M32 55 L45 68 L70 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Trusted partnerships.</strong> Strong relationships with suppliers, contractors and regulators.</span></li>
       </ul>
     </div>
     <div class="rv d2">
-      <img src="/img/excavator.jpg" alt="Excavator working on a construction site" loading="lazy">
+      <img src="/img/excavator.jpg" alt="Excavator working on a construction site" width="1200" height="800" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
 
-<!-- ============ INDUSTRIES ============ -->
-<section class="industries">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <span class="eyebrow">Where we work</span>
-      <h2>From homes to infrastructure.</h2>
-    </div>
-    <div class="ind-grid rv d1">
-      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg><span>Residential</span></div>
-      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5l8-3v19"/><path d="M12 21h8V9l-8-3"/><path d="M7 9h.01M7 13h.01M7 17h.01M16 13h.01M16 17h.01"/></svg><span>Commercial</span></div>
-      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V11l6 4V11l6 4V7l6-2v16"/><path d="M2 21h20"/></svg><span>Industrial</span></div>
-      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M4 21V9l8-5 8 5v12"/><path d="M12 21v-4"/><path d="M8 12h8"/><path d="M8 16h8"/></svg><span>Institutional</span></div>
-      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V8l6-4 6 4v14"/><path d="M2 22h20"/><path d="M12 22v-5"/><circle cx="12" cy="11" r="2"/></svg><span>Government</span></div>
-      <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V10a8 8 0 0 1 16 0v10"/><path d="M9 20v-6a3 3 0 0 1 6 0v6"/></svg><span>Infrastructure</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROCESS ============ -->
+<!-- ============ PROCESS SUMMARY ============ -->
 <section class="process" id="process">
   <div class="wrap">
     <div class="sec-head center rv">
@@ -189,85 +266,72 @@
     </div>
     <!-- Names only. The process exists in full on /approach/ and nowhere else. -->
     <div class="steps">
-      <div class="step rv"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n">1</span></div><div><h3>Discovery</h3></div></div>
-      <div class="step rv d1"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n">2</span></div><div><h3>Planning</h3></div></div>
-      <div class="step rv d2"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n">3</span></div><div><h3>Design</h3></div></div>
-      <div class="step rv d3"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n">4</span></div><div><h3>Execution</h3></div></div>
-      <div class="step rv d4"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n">5</span></div><div><h3>Delivery</h3></div></div>
+      <div class="step rv"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n" aria-hidden="true">1</span></div><div><h3>Discovery</h3></div></div>
+      <div class="step rv d1"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n" aria-hidden="true">2</span></div><div><h3>Planning</h3></div></div>
+      <div class="step rv d2"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n" aria-hidden="true">3</span></div><div><h3>Design</h3></div></div>
+      <div class="step rv d3"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n" aria-hidden="true">4</span></div><div><h3>Execution</h3></div></div>
+      <div class="step rv d4"><div class="step-hex"><svg viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 5 L93 29 L93 81 L50 105 L7 81 L7 29 Z" fill="#F9F7F2" stroke="#C8A14D" stroke-width="4"/></svg><span class="n" aria-hidden="true">5</span></div><div><h3>Delivery</h3></div></div>
     </div>
     <p class="sec-link rv"><a href="/approach/">See how a project runs &rarr;</a></p>
   </div>
 </section>
 
 <!-- ============ SUSTAINABILITY ============ -->
+<!-- Three lines and a link. The detail lives on the service page. -->
 <section class="sustain" style="background-image:url('/img/rebar.jpg')">
   <div class="wrap rv">
-    <span class="eyebrow" style="justify-content:center;display:flex">Sustainability</span>
+    <span class="eyebrow">Sustainability</span>
     <h2>Green construction is not a feature. <em>It's the foundation.</em></h2>
     <p>Eco-friendly practices and modern construction technologies run through every SOSE project — because a building that wastes energy, water or materials was never truly finished.</p>
+    <p class="sec-link"><a href="/services/sustainable-solutions/">How we build green &rarr;</a></p>
   </div>
 </section>
 
-<!-- ============ CTA ============ -->
+<!-- ============ FIELD NOTES TEASER ============ -->
+<section class="sec" id="insights">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="eyebrow">Field notes</span>
+      <h2>What we've learned, written down.</h2>
+      <p>Practical guidance for anyone building in Kenya, whether or not you hire us.</p>
+    </div>
+    <div class="insight-grid">
+      <a class="insight rv" href="/insights/before-you-break-ground/">
+        <span class="cat">Planning</span>
+        <h3>Before you break ground: five checks that save the most money</h3>
+        <p>The cheapest stage of any project is the one before it starts. These are the checks that most often get skipped, and what skipping them costs.</p>
+        <span class="read">6 min read &middot; <time datetime="2026-08-03">3 August 2026</time></span>
+      </a>
+      <a class="insight rv d1" href="/insights/what-a-structural-audit-looks-for/">
+        <span class="cat">Existing buildings</span>
+        <h3>What a structural audit actually looks for</h3>
+        <p>Not every crack matters, and some of the ones that do not look dramatic are the ones that should worry you. What an assessment covers, and how to read the findings.</p>
+        <span class="read">5 min read &middot; <time datetime="2026-07-20">20 July 2026</time></span>
+      </a>
+      <a class="insight rv d2" href="/insights/building-green-without-the-premium/">
+        <span class="cat">Sustainability</span>
+        <h3>Building green in Kenya without paying a premium</h3>
+        <p>Most of what makes a building efficient is decided before anyone quotes for equipment. The decisions that cost nothing, and the ones worth paying for.</p>
+        <span class="read">5 min read &middot; <time datetime="2026-07-05">5 July 2026</time></span>
+      </a>
+    </div>
+    <p class="sec-link rv"><a href="/insights/">All field notes &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
 <section class="cta">
   <svg class="cta-hex" viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M50 4 L95 29 L95 81 L50 106 L5 81 L5 29 Z" stroke="#C8A14D" stroke-width="1.5"/></svg>
   <div class="wrap rv">
     <h2>Your next project deserves <em>sight</em> before site.</h2>
     <p>Tell us what you're planning — a home, a commercial development, an audit of an existing structure — and we'll tell you honestly what it takes.</p>
     <div class="btn-row" style="justify-content:center">
-      <a class="btn btn-gold" href="#contact">Start Your Project</a>
-      <a class="btn btn-ghost" href="mailto:info@sosengineeringke.com">Talk to an Engineer</a>
+      <a class="btn btn-gold" href="/contact/">Start your project</a>
+      <a class="btn btn-ghost" href="mailto:info@sosengineeringke.com">Talk to an engineer</a>
     </div>
   </div>
 </section>
-
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Contact</span>
-      <h2>Let's talk about your build.</h2>
-    </div>
-    <div class="contact-grid">
-      <div class="rv">
-        <div class="c-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          <div><span class="lbl">Email</span><a href="mailto:info@sosengineeringke.com">info@sosengineeringke.com</a></div>
-        </div>
-        <div class="c-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg>
-          <div><span class="lbl">Website</span><a href="https://www.sosengineeringke.com" target="_blank" rel="noopener">www.sosengineeringke.com</a></div>
-        </div>
-        <div class="c-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div><span class="lbl">Location</span><span class="v">Kenya — serving clients nationwide</span></div>
-        </div>
-      </div>
-      <div class="form rv d2" id="quoteForm">
-        <h3>Start your project</h3>
-        <p>Fill this in and it opens a ready-made email to our team.</p>
-        <div class="field" id="fName">
-          <label for="name">Your name</label>
-          <input id="name" type="text" autocomplete="name">
-          <span class="err">Please enter your name.</span>
-        </div>
-        <div class="field" id="fEmail">
-          <label for="email">Email</label>
-          <input id="email" type="email" autocomplete="email">
-          <span class="err">Please enter a valid email address.</span>
-        </div>
-        <div class="field" id="fMsg">
-          <label for="msg">Tell us about your project</label>
-          <textarea id="msg" rows="4"></textarea>
-          <span class="err">Please describe your project briefly.</span>
-        </div>
-        <button class="btn btn-gold" id="sendBtn" type="button">Send Inquiry</button>
-        <p class="form-note">Sends via your email app to info@sosengineeringke.com</p>
-        <p class="form-ok" id="formOk">Opening your email app… Thank you — we'll get back to you.</p>
-      </div>
-    </div>
-  </div>
-</section>
+</main>
 
 <!-- ============ FOOTER ============ -->
 <!-- partial:footer -->
@@ -317,6 +381,5 @@
 </footer>
 <!-- /partial:footer -->
 
-<script src="/js/main.js" defer></script>
 </body>
 </html>

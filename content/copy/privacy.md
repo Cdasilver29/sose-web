@@ -44,6 +44,12 @@ This page is a plain-language starting point, not legal advice.
 This site sets no cookies and runs no analytics. Nothing you do on these pages is
 tracked or profiled, and the readiness check runs entirely in your browser.
 
-One thing does load from outside: the typefaces, which are served by Google
-Fonts. Your browser requests them from Google, and Google sees your IP address in
-the process. Nothing else on the site calls a third party.
+Nothing on this site loads from anywhere else. The typefaces, styles, scripts
+and images are all served from this domain, so no third party is contacted when
+you read a page, and none of them can see that you were here. The only party
+that sees your request is whoever hosts the site.
+
+Note: the typefaces used to be served by Google Fonts, and this page disclosed
+that. They are now self-hosted from /fonts/ and the site makes no external
+request of any kind, so the disclosure was removed rather than left standing as
+something that is no longer true.

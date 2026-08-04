@@ -80,6 +80,23 @@ One per question, shown only when that question was answered no or not sure.
    negotiation you are having from the weaker position.
    See: Project management → /services/project-management/
 
+## Short labels
+
+Used only in the emailed and copied result, one per question, in place of the
+full question text. A mailto: URL has a practical ceiling around 2,000
+characters and the full wording was already close to it, so the summary names
+the subject of each question rather than repeating it. The band, the blank
+lines that separate the blocks, and the framing line are unchanged.
+
+1. Land title
+2. Permitted use
+3. Approvals
+4. Soil investigation
+5. Drawings
+6. Surface water
+7. Budget and contingency
+8. Scope and variations
+
 ## Result framing
 
 Score line: [n] of 8 checks clear.

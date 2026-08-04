@@ -1,8 +1,49 @@
+/* ---------- fonts ----------
+   Self-hosted from /fonts/. The site makes no third-party request of any kind,
+   so there is no Google Fonts link and no preconnect on any page.
+
+   Three faces, latin only. The latin-ext subset was dropped: every character
+   painted anywhere on the site was scanned, and not one falls in that range,
+   so the three latin-ext files were 120 KB nobody would ever download a glyph
+   from. Anything outside latin — the → in .arrow is the only one in use —
+   falls back to the system font, exactly as it did under Google Fonts.
+
+   Both families are variable, so one file covers a whole weight range. The
+   ranges below are the ones the site actually renders: Inter 400 body, 500 nav,
+   600 UI, 700 for <strong>; Playfair 400 in the mobile menu and footer tag,
+   600 headings, 700 the wordmark and step numbers.
+
+   Playfair italic ships at 500 only. Google serves a wider italic file for a
+   400-600 range, but it costs 16 KB more, and 500 is what every italic run on
+   the site rendered at before this was self-hosted. font-display:swap keeps
+   text readable on the first paint. */
+@font-face{
+  font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Playfair Display';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/fonts/playfair-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Playfair Display';font-style:italic;font-weight:500;font-display:swap;
+  src:url('/fonts/playfair-italic-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
 :root{
   --navy:#0B1F4D;
   --navy-deep:#071335;
   --gold:#C8A14D;
   --gold-soft:#D9BC7A;
+  /* --gold and --gold-soft are decorative only on light grounds: 2.26:1 and
+     1.72:1 on --paper, both far under AA. --gold-ink is the same hue carried
+     down until it passes — 4.71:1 on --paper, 5.04:1 on white. Any gold text,
+     focus ring or icon that has to be read on paper or white uses this one.
+     On navy the original two already pass, so they keep those jobs. */
+  --gold-ink:#8A6A22;
   --paper:#F9F7F2;
   --ink:#1B2438;
   --muted:#5C6478;
@@ -21,7 +62,11 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.15;color:var(--navy)}
-img{display:block;max-width:100%}
+/* height:auto is not optional here. Every <img> carries explicit width and
+   height attributes for CLS, and those attributes set the used height unless
+   CSS overrides it — so max-width:100% alone scales the width down while the
+   height stays pinned at the attribute value, stretching the image. */
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 
@@ -29,10 +74,20 @@ a{color:inherit}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}.rv.d4{transition-delay:.48s}
+/* Reduced motion turns all of it off, not just the reveals. The hero wipe and
+   the scroll hint's pulse are animations rather than transitions, so the
+   blanket rule is what actually catches them. */
 @media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    transition-delay:0s !important;
+  }
   .rv{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
-  .hero-img{clip-path:none !important}
+  .hero-img{clip-path:none !important;animation:none !important}
+  .btn:hover,.svc:hover,.rel:hover,.insight:hover{transform:none}
 }
 
 /* ---------- logo ---------- */
@@ -46,8 +101,11 @@ a{color:inherit}
 .logo.on-light .logo-sub{color:var(--navy)}
 
 /* ---------- nav ---------- */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,box-shadow .35s,backdrop-filter .35s;padding:18px 0}
-nav.scrolled{background:rgba(11,31,77,.88);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.08);padding:12px 0}
+/* #nav, not nav. This is the one fixed site header; the breadcrumb and the
+   approach page's step rail are <nav> too, and an element selector here pins
+   them to the top of the viewport on top of the logo. */
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,box-shadow .35s,backdrop-filter .35s;padding:18px 0}
+#nav.scrolled{background:rgba(11,31,77,.88);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.08);padding:12px 0}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
 .nav-links{display:flex;gap:34px;list-style:none;align-items:center}
 .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.86rem;font-weight:500;letter-spacing:.02em;position:relative;padding:4px 0}
@@ -61,8 +119,11 @@ nav.scrolled{background:rgba(11,31,77,.88);backdrop-filter:blur(12px);box-shadow
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{position:fixed;inset:0;background:var(--navy-deep);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;opacity:0;pointer-events:none;transition:opacity .35s}
-.mobile-menu.open{opacity:1;pointer-events:auto}
+/* visibility, not just opacity: without it the seven links stay in the tab
+   order while the menu is invisible, including on desktop where the menu can
+   never be opened at all. */
+.mobile-menu{position:fixed;inset:0;background:var(--navy-deep);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s,visibility .35s}
+.mobile-menu.open{opacity:1;visibility:visible;pointer-events:auto}
 .mobile-menu a{color:#fff;text-decoration:none;font-family:'Playfair Display',serif;font-size:1.7rem}
 @media(max-width:820px){.nav-links{display:none}.burger{display:block}}
 
@@ -72,8 +133,13 @@ nav.scrolled{background:rgba(11,31,77,.88);backdrop-filter:blur(12px);box-shadow
 @keyframes heroReveal{to{clip-path:inset(0 0 0% 0)}}
 .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,19,53,.94) 0%,rgba(11,31,77,.78) 45%,rgba(11,31,77,.35) 100%)}
 .hero-content{position:relative;z-index:2;padding:140px 0 110px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft);font-weight:600;margin-bottom:26px}
+/* The eyebrow sits on a light ground on every interior page and on a dark one
+   only inside the home page's full-bleed bands, so --gold-ink is the default
+   and the dark grounds opt back into --gold-soft. The leading dash stays --gold
+   in both places; it is a rule, not text. */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-ink);font-weight:600;margin-bottom:26px}
 .eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+.hero .eyebrow,.band .eyebrow,.sustain .eyebrow,.cta .eyebrow,.cta-band .eyebrow,.page-header .eyebrow{color:var(--gold-soft)}
 .hero h1{color:#fff;font-size:clamp(2.5rem,6vw,4.6rem);max-width:15ch;margin-bottom:24px}
 .hero h1 em{font-style:italic;color:var(--gold-soft)}
 .hero p{max-width:52ch;color:rgba(255,255,255,.82);font-size:1.06rem;margin-bottom:40px}
@@ -94,8 +160,6 @@ section{padding:110px 0}
 .sec-head{max-width:640px;margin-bottom:64px}
 .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
 .sec-head.center .eyebrow{justify-content:center}
-.sec-head .eyebrow{color:var(--gold);}
-.sec-head .eyebrow::before{background:var(--gold)}
 .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:18px}
 .sec-head p{color:var(--muted)}
 
@@ -156,6 +220,7 @@ section{padding:110px 0}
 .sustain{position:relative;color:#fff;padding:150px 0;background-size:cover;background-position:center}
 .sustain::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(7,19,53,.85),rgba(7,19,53,.85))}
 .sustain .wrap{position:relative;z-index:2;max-width:820px;text-align:center}
+.sustain .eyebrow{display:flex;justify-content:center}
 .sustain h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:20px}
 .sustain h2 em{font-style:italic;color:var(--gold-soft)}
 .sustain p{color:rgba(255,255,255,.8)}
@@ -174,14 +239,14 @@ section{padding:110px 0}
 .c-item svg{width:22px;height:24px;color:var(--gold);flex:0 0 auto;margin-top:3px}
 .c-item .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .c-item a,.c-item span.v{display:block;font-weight:600;color:var(--navy);text-decoration:none;font-size:1.02rem;margin-top:2px}
-.c-item a:hover{color:var(--gold)}
+.c-item a:hover{color:var(--gold-ink)}
 .form{background:var(--white);border:1px solid var(--hairline);border-radius:3px;padding:40px;box-shadow:0 20px 50px rgba(11,31,77,.07)}
 .form h2,.form h3{font-size:1.35rem;margin-bottom:6px}
 .form>p{color:var(--muted);font-size:.9rem;margin-bottom:26px}
 .field{margin-bottom:18px}
 .field label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
 .field input,.field select,.field textarea{width:100%;border:1px solid var(--hairline);border-radius:2px;background:var(--paper);padding:13px 15px;font-family:inherit;font-size:.95rem;color:var(--ink);transition:border-color .25s,box-shadow .25s}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,161,77,.15)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold-ink);box-shadow:0 0 0 3px rgba(138,106,34,.18)}
 .field .err{color:var(--error);font-size:.78rem;margin-top:5px;display:none}
 .field.bad input,.field.bad select,.field.bad textarea{border-color:var(--error)}
 .field.bad .err{display:block}
@@ -205,6 +270,17 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 34p
    are the home page and remain the source of truth for the
    design system. Do not fork colours or type here.
    ========================================================= */
+
+/* skip link — first thing in the tab order on every page, off-screen until it
+   takes focus. The nav is fixed and eight items deep, so without this a
+   keyboard reader pays for it again on every page. */
+.skip{
+  position:fixed;left:16px;top:-80px;z-index:300;
+  background:var(--gold);color:var(--navy);font-weight:600;font-size:.86rem;
+  padding:12px 20px;border-radius:2px;text-decoration:none;
+}
+.skip:focus{top:16px}
+main:focus{outline:none}
 
 /* active nav state, set at runtime by js/main.js */
 .nav-links a[aria-current="page"]{color:#fff}
@@ -273,8 +349,11 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 34p
 .rel{display:block;text-decoration:none;background:var(--white);border:1px solid var(--hairline);border-radius:3px;padding:26px 24px;transition:transform .3s,border-color .3s,box-shadow .3s}
 .rel:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 18px 40px rgba(11,31,77,.1)}
 .rel .lbl{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.rel h3{margin:8px 0 0;font-size:1.08rem}
-.rel .arrow{color:var(--gold);font-weight:600;font-size:.86rem;margin-top:10px;display:inline-block}
+/* h2 as well as h3, because the home page's three-door strip sits directly
+   under the h1 with no section heading above it, so its cards are h2s. */
+.rel h2,.rel h3{margin:8px 0 0;font-size:1.08rem}
+.rel .arrow{color:var(--gold-ink);font-weight:600;font-size:.86rem;margin-top:10px;display:inline-block}
+.rel:focus-visible{outline:2px solid var(--gold-ink);outline-offset:4px}
 
 /* contextual CTA band, one per interior page */
 .cta-band{background:var(--navy);color:#fff;padding:74px 0;text-align:center;position:relative;overflow:hidden}
@@ -291,7 +370,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 34p
 .prose ul,.prose ol{margin:0 0 22px 20px;color:var(--ink)}
 .prose li{margin-bottom:9px;line-height:1.7}
 .prose a{color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
-.prose a:hover{color:var(--gold)}
+.prose a:hover{color:var(--gold-ink)}
 .prose blockquote{border-left:2px solid var(--gold);padding-left:22px;margin:32px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--navy)}
 .article-meta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:.8rem;color:rgba(255,255,255,.6);margin-top:18px}
 .article-meta .pill{border:1px solid rgba(200,161,77,.5);color:var(--gold-soft);padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase;font-size:.68rem;font-weight:600}
@@ -300,7 +379,8 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 34p
 .insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
 .insight{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--hairline);border-radius:3px;padding:32px 28px;text-decoration:none;transition:transform .3s,border-color .3s,box-shadow .3s}
 .insight:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 20px 44px rgba(11,31,77,.1)}
-.insight .cat{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.insight .cat{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);font-weight:600;margin-bottom:14px}
+.insight:focus-visible{outline:2px solid var(--gold-ink);outline-offset:4px}
 .insight h2,.insight h3{font-size:1.2rem;margin-bottom:10px}
 .insight p{color:var(--muted);font-size:.93rem;flex:1}
 .insight .read{margin-top:18px;font-size:.8rem;color:var(--muted)}
@@ -308,14 +388,14 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 34p
 /* services index — the home page .svc card, used as a whole-card link */
 a.svc{display:block;text-decoration:none;color:inherit}
 a.svc h2{font-size:1.28rem;margin-bottom:12px}
-a.svc .arrow{display:inline-block;margin-top:18px;color:var(--gold);font-weight:600;font-size:.86rem}
-a.svc:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+a.svc .arrow{display:inline-block;margin-top:18px;color:var(--gold-ink);font-weight:600;font-size:.86rem}
+a.svc:focus-visible{outline:2px solid var(--gold-ink);outline-offset:4px}
 
 /* sectors — the photo panel and the "what matters most here" line */
 .sector-media{margin-top:26px}
 .sector-media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;box-shadow:0 24px 48px rgba(11,31,77,.15)}
 .matters{border-left:2px solid var(--gold);padding:2px 0 2px 22px;margin-top:30px}
-.matters .lbl{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.matters .lbl{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);font-weight:600;margin-bottom:8px}
 .matters p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:1.14rem;line-height:1.5;color:var(--navy)}
 
 /* approach — the five step process, set out in full on the one page that owns it.
@@ -327,8 +407,8 @@ a.svc:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .flow-rail a{display:block;position:relative;z-index:2;text-align:center;text-decoration:none;padding:0 12px}
 .flow-rail .step-hex{display:block;margin:0 auto 14px}
 .flow-rail .nm{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:1.02rem;color:var(--navy);transition:color .25s}
-.flow-rail a:hover .nm,.flow-rail a:focus-visible .nm{color:var(--gold)}
-.flow-rail a:focus-visible{outline:2px solid var(--gold);outline-offset:6px;border-radius:2px}
+.flow-rail a:hover .nm,.flow-rail a:focus-visible .nm{color:var(--gold-ink)}
+.flow-rail a:focus-visible{outline:2px solid var(--gold-ink);outline-offset:6px;border-radius:2px}
 @media(max-width:900px){.flow-rail{display:none}}
 
 .flow{list-style:none}
@@ -343,15 +423,22 @@ a.svc:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 
 /* section level link, for a home page section that defers to the page owning it */
 .sec-link{margin-top:46px;text-align:center}
-.sec-link a{display:inline-block;color:var(--gold);font-weight:600;font-size:.9rem;letter-spacing:.02em;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s}
-.sec-link a:hover,.sec-link a:focus-visible{border-bottom-color:var(--gold)}
+/* except in the home page story column, where it belongs under the text */
+.story-copy .sec-link{margin-top:28px;text-align:left}
+.sec-link a{display:inline-block;color:var(--gold-ink);font-weight:600;font-size:.9rem;letter-spacing:.02em;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s}
+.sec-link a:hover,.sec-link a:focus-visible{border-bottom-color:var(--gold-ink)}
+/* on a dark band --gold-ink drops to 3.16:1, so the dark grounds take the
+   light gold, which clears 8.7:1 there */
+.band .sec-link a,.sustain .sec-link a,.cta .sec-link a,.cta-band .sec-link a{color:var(--gold-soft)}
+.band .sec-link a:hover,.sustain .sec-link a:hover,.cta .sec-link a:hover,.cta-band .sec-link a:hover,
+.band .sec-link a:focus-visible,.sustain .sec-link a:focus-visible,.cta .sec-link a:focus-visible,.cta-band .sec-link a:focus-visible{border-bottom-color:var(--gold-soft)}
 
 /* buttons rendered as <button> rather than <a>, and the light-background ghost.
    .btn-ghost is white-on-dark by design, so it disappears on a paper section;
    .btn-outline is the same shape for light bands. */
 button.btn{border:0;cursor:pointer;font-family:inherit}
 .btn.btn-outline{border:1px solid var(--navy);color:var(--navy);background:transparent}
-.btn.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn.btn-outline:hover{border-color:var(--gold-ink);color:var(--gold-ink)}
 .btn:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 
 /* readiness check — /project-check/ only. Eight fieldsets, then the result that
@@ -368,7 +455,7 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 .opt label{display:inline-block;border:1px solid var(--hairline);border-radius:2px;background:var(--paper);padding:10px 24px;font-size:.88rem;font-weight:600;color:var(--muted);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
 .opt label:hover{border-color:var(--gold);color:var(--navy)}
 .opt input:checked+label{background:var(--navy);border-color:var(--navy);color:#fff}
-.opt input:focus-visible+label{outline:2px solid var(--gold);outline-offset:3px}
+.opt input:focus-visible+label{outline:2px solid var(--gold-ink);outline-offset:3px}
 .check-error{color:var(--error);font-weight:600;font-size:.92rem;margin-top:18px}
 .check-error:empty{display:none}
 
@@ -381,7 +468,7 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 .result p{color:var(--muted);margin-bottom:16px;max-width:66ch}
 .result .hexlist{max-width:70ch;margin-bottom:6px}
 .result .hexlist a{color:var(--navy);font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
-.result .hexlist a:hover{color:var(--gold)}
+.result .hexlist a:hover{color:var(--gold-ink)}
 .result p.result-frame{border-left:2px solid var(--gold);padding:2px 0 2px 20px;margin-top:26px;font-style:italic;color:var(--navy)}
 .check-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:30px}
 .check-actions .copy-state{font-size:.85rem;color:var(--muted);margin:0}
@@ -395,3 +482,19 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 .foot-cols a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.85rem}
 .foot-cols a:hover{color:#fff}
 @media(max-width:700px){.foot-cols{grid-template-columns:1fr 1fr;gap:28px}}
+
+/* focus — the floor, so nothing interactive can be reached without showing it.
+   Components that already draw their own ring (.btn, .rel, .insight, a.svc,
+   .flow-rail a, .opt label) out-specify this and keep theirs. --gold-ink is
+   the light-ground colour; the dark bands swap back to --gold-soft, which
+   clears 9:1 on navy. */
+a:focus-visible,button:focus-visible,summary:focus-visible,
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--gold-ink);outline-offset:3px;border-radius:2px;
+}
+#nav a:focus-visible,.mobile-menu a:focus-visible,.drop a:focus-visible,
+.burger:focus-visible,.page-header a:focus-visible,.hero a:focus-visible,
+.band a:focus-visible,.sustain a:focus-visible,.cta a:focus-visible,
+.cta-band a:focus-visible,footer a:focus-visible{
+  outline-color:var(--gold-soft);
+}
