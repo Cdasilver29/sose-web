@@ -541,6 +541,19 @@ html.scrolled .crumb-bar{
 .article-meta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:.8rem;color:rgba(255,255,255,.6);margin-top:18px}
 .article-meta .pill{border:1px solid rgba(200,161,77,.5);color:var(--gold-soft);padding:4px 12px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase;font-size:.68rem;font-weight:600}
 
+/* article header image
+   Between the page header and the first paragraph on the three field notes.
+   It takes .prose's own 68ch measure rather than the full .wrap, so the photo
+   and the text it introduces share one column; a 1152px image over a 680px
+   text column reads as two unrelated things stacked.
+
+   Plain .rv in the markup, never .rv-left or .rv-right. The reading pages only
+   ever rise things vertically, and a header photo arriving sideways drags the
+   eye across the page at the moment the reader is trying to start the first
+   sentence. */
+.article-media{max-width:68ch;margin:0 auto 40px;border-radius:3px;overflow:hidden;box-shadow:0 24px 48px rgba(11,31,77,.15)}
+.article-media img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+
 /* insight cards */
 .insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px}
 .insight{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--hairline);border-radius:3px;padding:32px 28px;text-decoration:none;transition:transform .3s,border-color .3s,box-shadow .3s}

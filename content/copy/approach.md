@@ -15,6 +15,10 @@ order is what stops the expensive ones being made blind. The five steps below ar
 the same on a three-bedroom house and on a warehouse. What changes is the depth,
 not the sequence.
 
+Image: approach-planning.jpg
+Alt: Four pairs of hands over overlapping floor plans, one pointing at a detail
+while another holds a card of finish samples.
+
 ## The process
 
 This page owns the five steps in full. Everywhere else on the site, including the

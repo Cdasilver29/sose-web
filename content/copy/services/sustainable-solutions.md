@@ -15,6 +15,10 @@ Made at design stage, most of them cost little or nothing. Made later, they
 become expensive equipment bolted onto a building that was designed to fight
 them.
 
+Image: service-sustainable.jpg
+Alt: A technician in overalls kneeling to fit solar panels across a corrugated
+metal roof.
+
 ## What you get
 
 H2: Decisions that pay for themselves.

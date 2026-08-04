@@ -22,6 +22,20 @@ expertise and efficiency to deliver projects that stand the test of time.
 Our mission is to be the trusted partner for all your construction and building
 needs.
 
+Image: about-team.jpg
+Alt: A site worker in a hard hat and orange hi-vis vest signalling with a raised
+arm while holding a radio.
+
+The alt describes one worker and does not call them SOSE, deliberately. The file
+is named about-team.jpg but it is stock: a single person, on a hillside that is
+not Kenya. Rule 1 says no team members who do not exist, and a stock portrait
+sitting under "About" implies staff. It is placed here as a working image of the
+trade rather than a picture of this company, and the caption-free treatment
+keeps it from claiming otherwise. The photograph on
+/services/construction-consulting/ is the real one — SOSE people, SOSE vests —
+and it is the better candidate for this page the moment someone wants a team
+image here. Logged in content/client-inputs-needed.md.
+
 ## Three principles
 
 These three are the spine of the page. Each gets its own band, labelled
@@ -48,6 +62,10 @@ Eyebrow: Where we work
 
 Based in Nairobi, and serving countrywide in Kenya, SOSE works from urban
 developments in the cities to community projects in rural areas.
+
+Image: about-nairobi.jpg
+Alt: Nairobi's central business district from above, high-rise towers packed
+together with green suburbs and hills beyond.
 
 ## What clients get from us
 

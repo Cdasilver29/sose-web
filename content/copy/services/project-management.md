@@ -17,6 +17,10 @@ programme, work is inspected before it is covered up, variations are priced
 before they are approved, and you get written progress reports rather than
 having to chase for news.
 
+Image: service-project-management.jpg
+Alt: Two site staff in hard hats holding an unrolled drawing open between them,
+with yellow falsework towers rising behind.
+
 ## What you get
 
 H2: Somebody holding all of it.

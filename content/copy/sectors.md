@@ -45,12 +45,31 @@ under-investigated.
 
 ## Imagery
 
-Only three of the photographs in /img/ actually show one of these sectors, so
-only three sectors carry an image: facade.jpg with Residential, tower.jpg with
-Commercial, excavator.jpg with Infrastructure. Industrial, Institutional and
-Government run without a picture rather than borrow one that shows something
-else. A photograph that does not show the thing it sits next to is decoration,
-and decoration on this page reads as padding.
+All six sectors now carry an image. The three that already had one keep it:
+facade.jpg with Residential, tower.jpg with Commercial, excavator.jpg with
+Infrastructure.
+
+Alt text, Industrial:
+Workers on a raised concrete deck, laying and tying reinforcement bars across
+the slab before a pour.
+
+Alt text, Institutional:
+A four-storey block with brick infill panels and shaded balcony awnings, seen
+from the road behind a steel perimeter fence.
+
+Alt text, Government and public projects:
+A curved glass-clad tower still in scaffold, with a tower crane alongside and
+workers on the platform at its base.
+
+The standard this page used to hold itself to is worth restating, because two
+of the three new photographs do not fully meet it: a photograph that does not
+show the thing it sits next to is decoration. sector-institutional.jpg does
+show an institutional building. sector-industrial.jpg shows slab reinforcement,
+not a warehouse or a workshop, and sector-government.jpg shows a commercial
+tower rather than public works. They are construction photographs next to
+construction copy, which is honest enough, but neither depicts its sector.
+Replace both when SOSE supplies a real one. Logged in
+content/client-inputs-needed.md.
 
 ## Related
 

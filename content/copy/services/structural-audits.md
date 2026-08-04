@@ -19,6 +19,10 @@ prioritised list of what to do.
 Renovation work follows the same logic. Before you upgrade a building, you
 establish what you are upgrading.
 
+Image: service-structural-audits.jpg
+Alt: Two surveyors in hard hats examining an opened-up wall cavity, the exposed
+timber marked with pencil annotations.
+
 ## What you get
 
 H2: Findings you can act on.

@@ -9,6 +9,14 @@ paper before anyone breaks ground.
 Primary CTA: Start your project → /contact
 Secondary CTA: Check if you're ready to build → /project-check
 
+Background: hero-nairobi.jpg. Nairobi at dusk, the NBO and Britam towers above
+the central business district with the elevated expressway curving through it.
+It carries no alt text because it is a CSS background, not an <img>: the
+heading beside it is what a screen reader should read here, and describing the
+skyline again would only get in the way. It replaced tower.jpg, which was a
+stock glass facade that could have been any city. This one is legibly Nairobi,
+which is the whole claim the page is making.
+
 ## Intro strip (three doors, one per audience)
 
 Three cards directly under the hero. The heading is the reader's situation; the

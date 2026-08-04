@@ -25,6 +25,24 @@ One card per file in `content/insights/`, ordered by `publishedAt`, newest
 first. Category as the label, title as the heading, summary as the body,
 reading time and date on the last line. Card links to `/insights/[slug]/`.
 
+## Article header images
+
+One per note, between the page header and the first paragraph, at the same 68ch
+measure as the prose. Plain vertical reveal, never a side slide: on a reading
+page the eye should already be settling into the first sentence.
+
+Before you break ground → note-break-ground.jpg
+Alt: A tracked excavator standing over a fenced foundation site, with stacked
+reinforcement cages waiting beside the open trench.
+
+What a structural audit looks for → note-structural-audit.jpg
+Alt: A long horizontal crack in a rendered wall, broken open to show the
+corroded reinforcement bar running through it.
+
+Building green without the premium → note-green-building.jpg
+Alt: Solar water heaters and storage tanks mounted on steel frames above a tiled
+roof.
+
 ## Related
 
 How a project runs → /approach/

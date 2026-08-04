@@ -15,6 +15,12 @@ your project has to satisfy.
 It is also the work of translation. Between what you want, what the site allows,
 what the regulations require, and what a contractor will actually price.
 
+Image: service-consulting.jpg
+Alt: Five people in hard hats and marked hi-vis vests standing around a
+boardroom table, working through a drawing and a laptop together.
+This is the one photograph on the site that shows SOSE itself — the vests carry
+the company mark. Everything else in /img/ is stock.
+
 ## What you get
 
 H2: Answers before the money moves.

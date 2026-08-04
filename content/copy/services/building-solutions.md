@@ -16,6 +16,10 @@ house that has to be built in three phases as money arrives is a different desig
 problem from one built in one go, and pretending otherwise is how projects stall
 with a roof missing.
 
+Image: service-building-solutions.jpg
+Alt: Workers on a scaffolded upper floor setting timber formwork and steel
+decking for the next slab.
+
 ## What you get
 
 H2: One team, one line of accountability.

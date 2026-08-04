@@ -40,6 +40,27 @@ this list should be invented to fill a gap. Send this to the client as-is.
 15. Logo as SVG, if it exists. Currently only a 1080px PNG. The nav and footer
     marks are hand-built SVG recreations, which works, but a real SVG is better
     for the og image and print.
-16. Any photography of their own work. The current imagery is generic stock and
-    is the weakest part of the site. Even three phone photos of real sites,
-    shot well, would beat it.
+16. Any photography of their own work. Almost all of the imagery is still
+    generic stock and it remains the weakest part of the site. Even three phone
+    photos of real sites, shot well, would beat it. The one exception is
+    service-consulting.jpg on /services/construction-consulting/, which is a
+    genuine SOSE photograph — the vests carry the company mark. It is the
+    single most credible image on the site, and it is proof the rest could be
+    replaced the same way.
+
+17. contact-nairobi.jpg. The one file of the sixteen never supplied, so
+    /contact/ is the only page in the imagery pass without a photograph. The
+    slot is ready for it.
+
+18. A real Industrial photograph and a real Government or public-works
+    photograph, for /sectors/. sector-industrial.jpg shows slab reinforcement
+    rather than a warehouse or workshop, and sector-government.jpg shows a
+    commercial tower rather than public works. That page's own standard is that
+    a photograph which does not show the thing beside it is decoration, and
+    those two currently fail it.
+
+19. A team photograph for /about/, if that section is ever to carry one.
+    about-team.jpg is stock: a single worker, on a hillside that is not Kenya.
+    Rule 1 forbids team members who do not exist, so its alt text describes a
+    worker and does not attribute them to SOSE. Either replace it with a real
+    SOSE photograph or drop the image.
