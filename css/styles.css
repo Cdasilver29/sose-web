@@ -197,13 +197,32 @@ html.scrolled #nav{background:rgba(11,31,77,.88);-webkit-backdrop-filter:blur(12
 @keyframes heroFrame{to{transform:translate3d(0,0,0)}}
 @keyframes heroPhoto{to{transform:translate3d(0,0,0)}}
 .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,19,53,.94) 0%,rgba(11,31,77,.78) 45%,rgba(11,31,77,.35) 100%)}
-/* The 24px is the gutter .wrap sets and this shorthand used to wipe out. It was
-   invisible above a 1248px viewport, where .wrap's centring keeps the column
-   clear of the edges anyway, and below that the hero text ran flush into the
-   side of the screen. .hero .wrap is a shrink-to-fit flex item with margin
-   auto, so restoring it widens the box by 48px and leaves the text where it
-   was on desktop; on a phone it pulls it back off the edge. */
-.hero-content{position:relative;z-index:2;padding:140px 24px 110px}
+/* .hero-content is the flex item and now carries no gutter of its own: the two
+   boxes inside it set their own, because they are deliberately different widths.
+
+   width:100% rather than the shrink-to-fit it used to be. As a flex item with
+   width:auto it sized to its widest child and margin:0 auto centred it, which
+   is why the hero copy sat 298px right of the logo at 1440 and 82px right of it
+   at 768. Filling the line hands the alignment to .hero-copy's own .wrap, and
+   the two gutters then agree at every width by construction rather than by
+   coincidence.
+
+   min-width:0 is the guard on the 360 case. A flex item's min-width is auto,
+   which floors it at min-content, and that floor is what pushed the hero column
+   off both edges of a phone once — the eyebrow's tracked-out caps set a
+   min-content wider than the viewport. .eyebrow{flex-wrap:wrap} lowered that
+   floor and fixed it, but the floor still exists and any long unbroken word in
+   the h1 would find it again. min-width:0 removes the floor instead of ducking
+   under it. */
+.hero-content{position:relative;z-index:2;width:100%;min-width:0;padding:140px 0 110px}
+/* 604px is the width .hero-content used to shrink-to-fit to, and the buttons
+   are meant to stay exactly where that put them. It is written as a constant
+   rather than left to fall out of the copy, which is the point: the old number
+   was set by the standfirst's 52ch measure, so every future edit to that
+   sentence would have moved the buttons. Now nothing moves them but this line.
+   Below 604px the box is viewport-width and the 24px gutter takes over, which
+   is why the two columns converge on the same edge at 360. */
+.hero-actions{max-width:604px;margin:0 auto;padding:0 24px}
 /* The eyebrow sits on a light ground on every interior page and on a dark one
    only inside the home page's full-bleed bands, so --gold-ink is the default
    and the dark grounds opt back into --gold-soft. The leading dash stays --gold
